@@ -55,14 +55,14 @@ class _LoginState extends State<Login> {
               'แจ้งเตือนเข้าสู่ระบบ',
               style: TextStyle(
                   color: Color.fromARGB(255, 65, 57, 52),
-                  fontFamily: 'anupark',
+                  fontFamily: 'arthit',
                   fontSize: 21),
             ),
             content: Text(
               "ผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง",
               style: TextStyle(
                   color: Color.fromARGB(255, 55, 48, 43),
-                  fontFamily: 'anupark',
+                  fontFamily: 'arthit',
                   fontSize: 17),
             ),
             actions: [
@@ -109,7 +109,7 @@ class _LoginState extends State<Login> {
           Text(
             title,
             style: TextStyle(
-                fontWeight: FontWeight.bold,
+                fontFamily: 'arthit',
                 fontSize: 15,
                 color: Color.fromARGB(255, 22, 155, 111)),
           ),
@@ -199,7 +199,7 @@ class _LoginState extends State<Login> {
           style: TextStyle(
             fontSize: 20,
             color: Colors.white,
-            fontFamily: 'anupark',
+            fontFamily: 'aovel',
           ),
         ),
       ),
@@ -212,7 +212,7 @@ class _LoginState extends State<Login> {
       text: TextSpan(
         text: 'ลงชื่อเข้าใช้ระบบ',
         style: TextStyle(
-            fontFamily: 'anupark',
+            fontFamily: 'aovel',
             fontSize: 30,
             fontWeight: FontWeight.w700,
             color: Color.fromARGB(255, 15, 136, 100)),
@@ -236,7 +236,7 @@ class _LoginState extends State<Login> {
       constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/images.jpg"),
+              image: AssetImage("assets/images/3221598.jpg"),
               fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,

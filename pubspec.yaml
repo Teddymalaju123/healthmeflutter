@@ -92,3 +92,8 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
     - assets/images/
+
+  fonts:
+    - family: arthit
+      fonts:
+        - asset: assets/fonts/Arthit.ttf
