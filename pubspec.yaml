@@ -94,6 +94,9 @@ flutter:
     - assets/images/
 
   fonts:
-    - family: arthit
+    - family: rsu
       fonts:
-        - asset: assets/fonts/Arthit.ttf
+        - asset: assets/fonts/RSU_Regular.ttf
+    - family: rsubold
+      fonts:
+        - asset: assets/fonts/RSU_BOLD.ttf
