@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutterapphealthme/src/features/authentication/model/user_info.dart';
 
+import '../../../widget/CustomRadio.dart';
 import '../../routing/navigator.dart';
 
 class register extends StatefulWidget {
@@ -31,6 +32,8 @@ class _registerState extends State<register> {
   TextEditingController dateoftarget = new TextEditingController();
   TextEditingController wayoptiion = new TextEditingController();
   TextEditingController typeuser = new TextEditingController();
+  int sex = 0;
+  int userType = 0;
   final dio = Dio();
   List<UserInfo> userData = [];
 
@@ -46,7 +49,7 @@ class _registerState extends State<register> {
       "firstname": firstname.text,
       "lastname": lastname.text,
       "phonenumber": phonenumber.text,
-      "gender": gender.text,
+      "gender": sex == 0 ? "ชาย" : "หญิง",
       "dateofbirth": dateofbirth.text,
       "weight": weight.text,
       "height": height.text,
@@ -54,22 +57,17 @@ class _registerState extends State<register> {
       "targetweight": targetweight.text,
       "dateoftarget": dateoftarget.text,
       "wayoption": wayoptiion.text,
-      "typeuser": typeuser.text
+      "typeuser": userType == 0 ? "1" : "2",
+      "usertype": userType == 0 ? "USER" : "TRAINER"
     });
     if (response.statusCode == 200) {
-      List<UserInfo> data = [];
-      var forEach = response.data.forEach((element) {
-        data.add(UserInfo.fromJson(element));
-      });
-      setState(() {
-        userData = data;
-      });
-    }
-    if (userData != null && userData.isNotEmpty) {
       goToMain();
-    } else {
-      noti(context);
     }
+    // if (userData != null && userData.isNotEmpty) {
+    //   goToMain();
+    // } else {
+    //   noti(context);
+    // }
 
     print(response);
   }
@@ -344,41 +342,41 @@ class _registerState extends State<register> {
     );
   }
 
-  Widget _entryFieldGender(String title) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            title,
-            style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          TextField(
-              controller: gender,
-              decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(left: 10),
-                  border: InputBorder.none,
-                  fillColor: Colors.white,
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
-                    borderRadius: BorderRadius.all(Radius.circular(6)),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xffE2E8F0)),
-                    borderRadius: BorderRadius.all(Radius.circular(6)),
-                  ),
-                  filled: true))
-        ],
-      ),
-    );
-  }
+  // Widget _entryFieldGender(String title) {
+  //   return Container(
+  //     margin: EdgeInsets.symmetric(vertical: 10),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: <Widget>[
+  //         Text(
+  //           title,
+  //           style: TextStyle(
+  //               fontFamily: 'rsubold',
+  //               fontSize: 15,
+  //               color: Color.fromARGB(255, 22, 155, 111)),
+  //         ),
+  //         SizedBox(
+  //           height: 10,
+  //         ),
+  //         TextField(
+  //             controller: gender,
+  //             decoration: InputDecoration(
+  //                 contentPadding: EdgeInsets.only(left: 10),
+  //                 border: InputBorder.none,
+  //                 fillColor: Colors.white,
+  //                 focusedBorder: OutlineInputBorder(
+  //                   borderSide: const BorderSide(color: Color(0xff6E8786)),
+  //                   borderRadius: BorderRadius.all(Radius.circular(6)),
+  //                 ),
+  //                 enabledBorder: OutlineInputBorder(
+  //                   borderSide: BorderSide(color: Color(0xffE2E8F0)),
+  //                   borderRadius: BorderRadius.all(Radius.circular(6)),
+  //                 ),
+  //                 filled: true))
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _entryFieldDateofbirth(String title) {
     return Container(
@@ -725,7 +723,39 @@ class _registerState extends State<register> {
         _entryFieldFirstname("ชื่อจริง"),
         _entryFieldLastname("นามสกุล"),
         _entryFieldPhonenumber("เบอร์โทรศัพท์"),
-        _entryFieldGender("เพศ"),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: Text(
+            "เลือกเพศ",
+            style: TextStyle(
+                fontFamily: 'donut',
+                fontSize: 20,
+                color: Color.fromARGB(255, 255, 255, 255)),
+          ),
+        ),
+        CustomRadio(
+          name: 'ชาย',
+          value: 0,
+          groupValue: sex,
+          onChanged: (value, name) {
+            setState(() {
+              sex = value;
+            });
+          },
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        CustomRadio(
+          name: 'หญิง',
+          value: 1,
+          groupValue: sex,
+          onChanged: (value, name) {
+            setState(() {
+              sex = value;
+            });
+          },
+        ),
         _entryFieldDateofbirth("วันเกิด"),
         _entryFieldWeight("น้ำหนัก"),
         _entryFieldHeight("ส่วนสูง"),
@@ -733,7 +763,39 @@ class _registerState extends State<register> {
         _entryFieldTargetwieght("เป้าหมายน้ำหนักที่ต้องการ"),
         _entryFieldDateoftarget("วันที่เป้าหมาย"),
         _entryFieldWayoption("วิธีการที่ต้องการ"),
-        _entryFieldTypeUser("ประเภทที่ต้องการสมัคร")
+        Padding(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: Text(
+            "ประเภทผู้เข้าใช้งาน",
+            style: TextStyle(
+                fontFamily: 'donut',
+                fontSize: 20,
+                color: Color.fromARGB(255, 255, 255, 255)),
+          ),
+        ),
+        CustomRadio(
+          name: 'ผู้ใช้',
+          value: 0,
+          groupValue: userType,
+          onChanged: (value, name) {
+            setState(() {
+              userType = value;
+            });
+          },
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        CustomRadio(
+          name: 'เทรนเนอร์',
+          value: 1,
+          groupValue: userType,
+          onChanged: (value, name) {
+            setState(() {
+              userType = value;
+            });
+          },
+        ),
       ],
     );
   }

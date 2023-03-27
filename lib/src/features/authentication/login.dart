@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterapphealthme/src/features/authentication/model/register.dart';
 import 'package:flutterapphealthme/src/features/authentication/model/user_info.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../routing/navigator.dart';
 
@@ -206,6 +208,49 @@ class _LoginState extends State<Login> {
     );
   }
 
+  gotoregister() {
+    PersistentNavBarNavigator.pushNewScreen(
+      context,
+      screen: register(),
+      withNavBar: false,
+      pageTransitionAnimation: PageTransitionAnimation.cupertino,
+    ).then((value) => {});
+  }
+
+  Widget _RegisterButton() {
+    return InkWell(
+      onTap: () {
+        gotoregister();
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.symmetric(vertical: 6),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                  color: Colors.grey.shade200,
+                  offset: Offset(2, 4),
+                  blurRadius: 5,
+                  spreadRadius: 2)
+            ],
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [Color(0xff6E8786), Color(0xff6E8786)])),
+        child: Text(
+          'สมัครสมาชิก',
+          style: TextStyle(
+            fontSize: 20,
+            color: Colors.white,
+            fontFamily: 'aovel',
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _title() {
     return RichText(
       textAlign: TextAlign.center,
@@ -253,6 +298,8 @@ class _LoginState extends State<Login> {
                 _emailPasswordWidget(),
                 SizedBox(height: 30),
                 _submitButton(),
+                SizedBox(height: 30),
+                _RegisterButton(),
               ],
             ),
           ),
