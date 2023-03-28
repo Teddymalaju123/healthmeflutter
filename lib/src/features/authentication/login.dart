@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutterapphealthme/src/features/authentication/model/register.dart';
 import 'package:flutterapphealthme/src/features/authentication/model/user_info.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
@@ -18,6 +19,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   TextEditingController username = new TextEditingController();
   TextEditingController password = new TextEditingController();
+  static FlutterSecureStorage storageToken = new FlutterSecureStorage();
   final dio = Dio();
   List<UserInfo> userData = [];
 
@@ -37,6 +39,10 @@ class _LoginState extends State<Login> {
       setState(() {
         userData = data;
       });
+      await storageToken.write(
+        key: 'username',
+        value: userData[0].username,
+      );
       if (userData != null && userData.isNotEmpty) {
         if (userData[0].usertype == "USER") {
           goToMainUser();

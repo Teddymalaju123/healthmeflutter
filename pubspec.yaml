@@ -38,6 +38,7 @@ dependencies:
   persistent_bottom_nav_bar: ^5.0.2
   babstrap_settings_screen: ^0.1.5+1
   flutter_settings_screens: ^0.2.2+1
+  flutter_secure_storage: ^8.0.0
 
 dev_dependencies:
   flutter_test:
