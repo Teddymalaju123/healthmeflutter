@@ -31,7 +31,7 @@ class _AreaListViewState extends State<AreaListView>
   List<UserInfo> userData = [];
   getUser() async {
     final response = await dio.get(
-      'http://192.168.1.115:5000/get-user-byusername',
+      'http://192.168.1.115:5000/get-user-training',
     );
     if (response.statusCode == 200) {
       List<UserInfo> data = [];
