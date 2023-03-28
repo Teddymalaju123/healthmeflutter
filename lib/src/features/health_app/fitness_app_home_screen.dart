@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapphealthme/src/features/fitness_app/training/training_screen.dart';
+import 'package:flutterapphealthme/src/features/health_app/training/training_screen.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'fitness_app_theme.dart';
 import 'models/tabIcon_data.dart';

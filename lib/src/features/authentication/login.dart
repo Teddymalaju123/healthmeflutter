@@ -5,7 +5,7 @@ import 'package:flutterapphealthme/src/features/authentication/model/register.da
 import 'package:flutterapphealthme/src/features/authentication/model/user_info.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
-import '../fitness_app/fitness_app_home_screen.dart';
+import '../health_app/fitness_app_home_screen.dart';
 import '../routing/navigator.dart';
 
 class Login extends StatefulWidget {

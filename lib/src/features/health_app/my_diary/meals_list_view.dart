@@ -1,8 +1,12 @@
+import 'dart:math';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../main.dart';
 import '../fitness_app_theme.dart';
 import '../models/meals_list_data.dart';
+import '../models/modulefood.dart';
 
 class MealsListView extends StatefulWidget {
   const MealsListView(
@@ -21,8 +25,88 @@ class _MealsListViewState extends State<MealsListView>
   AnimationController? animationController;
   List<MealsListData> mealsListData = MealsListData.tabIconsList;
 
+  final dio = Dio();
+  // List<Modulefood> dataList = [];
+  // getDataApi() async {
+  //   final response = await dio.get('http://192.168.1.115:5000/login');
+  //   if (response.statusCode == 200) {
+  //     List<Modulefood> data = [];
+  //     response.data.forEach((element) {
+  //       data.add(Modulefood.fromJson(element));
+  //     });
+  //     setState(() {
+  //       dataList = data;
+  //     });
+  //   }
+  // }
+
+  List<MealsListData> tabIconsList = <MealsListData>[
+    // MealsListData(
+    //   imagePath: 'assets/fitness_app/breakfast.png',
+    //   titleTxt: 'Breakfast',
+    //   kacl: 525,
+    //   meals: <String>['Bread'],
+    //   startColor: '#FA7D82',
+    //   endColor: '#FFB295',
+    // ),
+    // MealsListData(
+    //   imagePath: 'assets/fitness_app/lunch.png',
+    //   titleTxt: 'Lunch',
+    //   kacl: 602,
+    //   meals: <String>['Salmon,', 'Mixed veggies,', 'Avocado'],
+    //   startColor: '#738AE6',
+    //   endColor: '#5C5EDD',
+    // ),
+    // MealsListData(
+    //   imagePath: 'assets/fitness_app/dinner.png',
+    //   titleTxt: 'Dinner',
+    //   kacl: 602,
+    //   meals: <String>['Salmon,', 'Mixed veggies,', 'Avocado'],
+    //   startColor: '#6F72CA',
+    //   endColor: '#1E1466',
+    // ),
+  ];
+
+  List<Modulefood> dataList = [];
+
+  getDataApi() async {
+    List<String> listImage = [
+      "assets/fitness_app/breakfast.png",
+      "assets/fitness_app/lunch.png",
+      "assets/fitness_app/dinner.png"
+    ];
+    final response = await dio.get('http://192.168.1.115:5000/login');
+    if (response.statusCode == 200) {
+      List<Modulefood> data = [];
+      response.data.forEach((element) {
+        data.add(Modulefood.fromJson(element));
+      });
+      Random random = Random();
+      int index = random.nextInt(listImage.length);
+
+      // Add data from dataList to tabIconsList
+      data.forEach((element) {
+        tabIconsList.add(
+          MealsListData(
+            imagePath: listImage[index],
+            titleTxt: element.waytype!,
+            kacl: int.parse(element.calories!),
+            meals: [element.food!],
+            startColor: '#738AE6',
+            endColor: '#5C5EDD',
+          ),
+        );
+      });
+
+      setState(() {
+        dataList = data;
+      });
+    }
+  }
+
   @override
   void initState() {
+    getDataApi();
     animationController = AnimationController(
         duration: const Duration(milliseconds: 2000), vsync: this);
     super.initState();
