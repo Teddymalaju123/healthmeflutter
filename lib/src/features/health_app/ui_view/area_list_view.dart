@@ -1,5 +1,9 @@
+import 'dart:math';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
+import '../../authentication/model/user_info.dart';
 import '../fitness_app_theme.dart';
 
 class AreaListView extends StatefulWidget {
@@ -23,8 +27,26 @@ class _AreaListViewState extends State<AreaListView>
     'assets/fitness_app/area1.png',
   ];
 
+  final dio = Dio();
+  List<UserInfo> userData = [];
+  getUser() async {
+    final response = await dio.get(
+      'http://192.168.1.115:5000/get-user-byusername',
+    );
+    if (response.statusCode == 200) {
+      List<UserInfo> data = [];
+      response.data.forEach((element) {
+        data.add(UserInfo.fromJson(element));
+      });
+      setState(() {
+        userData = data;
+      });
+    }
+  }
+
   @override
   void initState() {
+    getUser();
     animationController = AnimationController(
         duration: const Duration(milliseconds: 2000), vsync: this);
     super.initState();
@@ -38,6 +60,7 @@ class _AreaListViewState extends State<AreaListView>
 
   @override
   Widget build(BuildContext context) {
+    Random random = Random();
     return AnimatedBuilder(
       animation: widget.mainScreenAnimationController!,
       builder: (BuildContext context, Widget? child) {
@@ -47,7 +70,7 @@ class _AreaListViewState extends State<AreaListView>
             transform: Matrix4.translationValues(
                 0.0, 30 * (1.0 - widget.mainScreenAnimation!.value), 0.0),
             child: AspectRatio(
-              aspectRatio: 1.0,
+              aspectRatio: 0.1,
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8),
                 child: GridView(
@@ -56,9 +79,9 @@ class _AreaListViewState extends State<AreaListView>
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   children: List<Widget>.generate(
-                    areaListData.length,
+                    userData.length,
                     (int index) {
-                      final int count = areaListData.length;
+                      final int count = userData.length;
                       final Animation<double> animation =
                           Tween<double>(begin: 0.0, end: 1.0).animate(
                         CurvedAnimation(
@@ -69,7 +92,9 @@ class _AreaListViewState extends State<AreaListView>
                       );
                       animationController?.forward();
                       return AreaView(
-                        imagepath: areaListData[index],
+                        imagepath:
+                            areaListData[random.nextInt(areaListData.length)],
+                        userData: userData[index],
                         animation: animation,
                         animationController: animationController!,
                       );
@@ -79,7 +104,7 @@ class _AreaListViewState extends State<AreaListView>
                     crossAxisCount: 2,
                     mainAxisSpacing: 24.0,
                     crossAxisSpacing: 24.0,
-                    childAspectRatio: 1.0,
+                    childAspectRatio: 0.7,
                   ),
                 ),
               ),
@@ -96,13 +121,14 @@ class AreaView extends StatelessWidget {
     Key? key,
     this.imagepath,
     this.animationController,
+    this.userData,
     this.animation,
   }) : super(key: key);
 
   final String? imagepath;
   final AnimationController? animationController;
   final Animation<double>? animation;
-
+  final UserInfo? userData;
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -128,25 +154,34 @@ class AreaView extends StatelessWidget {
                       blurRadius: 10.0),
                 ],
               ),
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  focusColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  splashColor: FitnessAppTheme.nearlyDarkBlue.withOpacity(0.2),
-                  onTap: () {},
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 16, left: 16, right: 16),
-                        child: Image.asset(imagepath!),
+              child: Column(
+                children: [
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      focusColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(8.0)),
+                      splashColor:
+                          FitnessAppTheme.nearlyDarkBlue.withOpacity(0.2),
+                      onTap: () {},
+                      child: Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 16, left: 16, right: 16),
+                            child: Image.asset(imagepath!),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
+                  Text('ชื่อ : ${userData!.firstname}'),
+                  Text('นามสกุล : ${userData!.lastname}'),
+                  Text('เบอร์โทรศัพท์ :  ${userData!.phonenumber}')
+                ],
               ),
             ),
           ),
