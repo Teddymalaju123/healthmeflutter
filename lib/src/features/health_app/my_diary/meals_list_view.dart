@@ -73,9 +73,10 @@ class _MealsListViewState extends State<MealsListView>
     List<String> listImage = [
       "assets/fitness_app/breakfast.png",
       "assets/fitness_app/lunch.png",
-      "assets/fitness_app/dinner.png"
+      "assets/fitness_app/dinner.png",
+      "assets/fitness_app/snack.png"
     ];
-    final response = await dio.get('http://192.168.1.115:5000/login');
+    final response = await dio.get('http://192.168.1.115:5000/get-food');
     if (response.statusCode == 200) {
       List<Modulefood> data = [];
       response.data.forEach((element) {
@@ -88,8 +89,8 @@ class _MealsListViewState extends State<MealsListView>
       data.forEach((element) {
         mealsListData.add(
           MealsListData(
-            imagePath: listImage[index],
-            titleTxt: element.waytype!,
+            imagePath: listImage[random.nextInt(listImage.length)],
+            titleTxt: "อาหารแนะนำ",
             kacl: int.parse(element.calories!),
             meals: [element.food!],
             startColor: '#738AE6',
@@ -228,7 +229,7 @@ class MealsView extends StatelessWidget {
                               style: TextStyle(
                                 fontFamily: FitnessAppTheme.fontName,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 16,
+                                fontSize: 12,
                                 letterSpacing: 0.2,
                                 color: FitnessAppTheme.white,
                               ),
@@ -246,7 +247,7 @@ class MealsView extends StatelessWidget {
                                       style: TextStyle(
                                         fontFamily: FitnessAppTheme.fontName,
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 10,
+                                        fontSize: 12,
                                         letterSpacing: 0.2,
                                         color: FitnessAppTheme.white,
                                       ),
