@@ -1,5 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+import '../../authentication/model/user_info.dart';
 import '../fitness_app_theme.dart';
 
 // class BodyMeasurementView extends StatelessWidget {
@@ -16,6 +19,32 @@ class BodyMeasurementView extends StatefulWidget {
 }
 
 class _BodyMeasurementViewState extends State<BodyMeasurementView> {
+  final dio = Dio();
+  UserInfo? userData;
+  static FlutterSecureStorage storageToken = new FlutterSecureStorage();
+
+  getUser() async {
+    final username = await storageToken.read(key: 'username');
+    final response = await dio.get(
+      'http://192.168.1.115:5000/login/${username}',
+    );
+    if (response.statusCode == 200) {
+      List<UserInfo> data = [];
+      response.data.forEach((element) {
+        data.add(UserInfo.fromJson(element));
+      });
+      setState(() {
+        userData = data[0];
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -79,7 +108,7 @@ class _BodyMeasurementViewState extends State<BodyMeasurementView> {
                                     padding: const EdgeInsets.only(
                                         left: 4, bottom: 3),
                                     child: Text(
-                                      '55',
+                                      '${userData!.targetweight}',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontFamily: FitnessAppTheme.fontName,
@@ -133,7 +162,7 @@ class _BodyMeasurementViewState extends State<BodyMeasurementView> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  '185 cm',
+                                  '${userData!.height} cm',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,
@@ -209,7 +238,7 @@ class _BodyMeasurementViewState extends State<BodyMeasurementView> {
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: <Widget>[
                                     Text(
-                                      '80 KG',
+                                      '${userData!.weight} KG',
                                       style: TextStyle(
                                         fontFamily: FitnessAppTheme.fontName,
                                         fontWeight: FontWeight.w500,
