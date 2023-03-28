@@ -38,7 +38,7 @@ class _LoginState extends State<Login> {
         userData = data;
       });
       if (userData != null && userData.isNotEmpty) {
-        if (userData[0].typeuser == "USER") {
+        if (userData[0].usertype == "USER") {
           goToMainUser();
         } else {
           goToMain();
@@ -96,7 +96,7 @@ class _LoginState extends State<Login> {
   goToMainUser() {
     Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
       MaterialPageRoute(
-        settings: RouteSettings(name: "/MenuBar"),
+        settings: RouteSettings(name: "/MenuBar2"),
         builder: (BuildContext context) {
           return FitnessAppHomeScreen();
         },
