@@ -23,7 +23,7 @@ class MealsListView extends StatefulWidget {
 class _MealsListViewState extends State<MealsListView>
     with TickerProviderStateMixin {
   AnimationController? animationController;
-  List<MealsListData> mealsListData = MealsListData.tabIconsList;
+  List<MealsListData> mealsListData = [];
 
   final dio = Dio();
   // List<Modulefood> dataList = [];
@@ -86,7 +86,7 @@ class _MealsListViewState extends State<MealsListView>
 
       // Add data from dataList to tabIconsList
       data.forEach((element) {
-        tabIconsList.add(
+        mealsListData.add(
           MealsListData(
             imagePath: listImage[index],
             titleTxt: element.waytype!,
@@ -98,9 +98,7 @@ class _MealsListViewState extends State<MealsListView>
         );
       });
 
-      setState(() {
-        dataList = data;
-      });
+      setState(() {});
     }
   }
 
