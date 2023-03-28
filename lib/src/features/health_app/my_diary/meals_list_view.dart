@@ -93,7 +93,7 @@ class _MealsListViewState extends State<MealsListView>
             titleTxt: "อาหารแนะนำ",
             kacl: int.parse(element.calories!),
             meals: [element.food!],
-            startColor: '#738AE6',
+            startColor: '#28DCD1',
             endColor: '#5C5EDD',
           ),
         );

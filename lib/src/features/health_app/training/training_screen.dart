@@ -90,7 +90,7 @@ class _TrainingScreenState extends State<TrainingScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.background,
+      color: FitnessAppTheme.screendiary,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
