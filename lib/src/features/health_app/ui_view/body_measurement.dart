@@ -104,20 +104,21 @@ class _BodyMeasurementViewState extends State<BodyMeasurementView> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 4, bottom: 3),
-                                    child: Text(
-                                      '${userData!.targetweight}',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontFamily: FitnessAppTheme.fontName,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 32,
-                                        color: FitnessAppTheme.nearlyDarkBlue,
+                                  if (userData != null)
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 4, bottom: 3),
+                                      child: Text(
+                                        '${userData!.targetweight}',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontFamily: FitnessAppTheme.fontName,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 32,
+                                          color: FitnessAppTheme.nearlyDarkBlue,
+                                        ),
                                       ),
                                     ),
-                                  ),
                                   Padding(
                                     padding: const EdgeInsets.only(
                                         left: 8, bottom: 8),
@@ -161,17 +162,18 @@ class _BodyMeasurementViewState extends State<BodyMeasurementView> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(
-                                  '${userData!.height} cm',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontFamily: FitnessAppTheme.fontName,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 16,
-                                    letterSpacing: -0.2,
-                                    color: FitnessAppTheme.darkText,
+                                if (userData != null)
+                                  Text(
+                                    '${userData!.height} cm',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontFamily: FitnessAppTheme.fontName,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16,
+                                      letterSpacing: -0.2,
+                                      color: FitnessAppTheme.darkText,
+                                    ),
                                   ),
-                                ),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 6),
                                   child: Text(
@@ -237,16 +239,17 @@ class _BodyMeasurementViewState extends State<BodyMeasurementView> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: <Widget>[
-                                    Text(
-                                      '${userData!.weight} KG',
-                                      style: TextStyle(
-                                        fontFamily: FitnessAppTheme.fontName,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16,
-                                        letterSpacing: -0.2,
-                                        color: FitnessAppTheme.darkText,
+                                    if (userData != null)
+                                      Text(
+                                        '${userData!.weight} KG',
+                                        style: TextStyle(
+                                          fontFamily: FitnessAppTheme.fontName,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 16,
+                                          letterSpacing: -0.2,
+                                          color: FitnessAppTheme.darkText,
+                                        ),
                                       ),
-                                    ),
                                     Padding(
                                       padding: const EdgeInsets.only(top: 6),
                                       child: Text(
