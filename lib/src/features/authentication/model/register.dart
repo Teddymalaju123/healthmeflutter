@@ -32,6 +32,8 @@ class _registerState extends State<register> {
   TextEditingController dateoftarget = new TextEditingController();
   TextEditingController wayoptiion = new TextEditingController();
   TextEditingController typeuser = new TextEditingController();
+  int goaltype = 0;
+  int waytype = 0;
   int sex = 0;
   int userType = 0;
   final dio = Dio();
@@ -53,10 +55,10 @@ class _registerState extends State<register> {
       "dateofbirth": dateofbirth.text,
       "weight": weight.text,
       "height": height.text,
-      "goaloption": goaloption.text,
+      "goaloption": goaltype == 0 ? "Build muscle"  "Loss weight" : "Stay healthy",
       "targetweight": targetweight.text,
       "dateoftarget": dateoftarget.text,
-      "wayoption": wayoptiion.text,
+      "wayoption": waytype == 0 ? "IF" : "Calories",
       "typeuser": userType == 0 ? "1" : "2",
       "usertype": userType == 0 ? "USER" : "TRAINER"
     });
@@ -486,41 +488,7 @@ class _registerState extends State<register> {
     );
   }
 
-  Widget _entryFieldGoaloption(String title) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            title,
-            style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          TextField(
-              controller: goaloption,
-              decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(left: 10),
-                  border: InputBorder.none,
-                  fillColor: Colors.white,
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
-                    borderRadius: BorderRadius.all(Radius.circular(6)),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xffE2E8F0)),
-                    borderRadius: BorderRadius.all(Radius.circular(6)),
-                  ),
-                  filled: true))
-        ],
-      ),
-    );
-  }
+ 
 
   Widget _entryFieldTargetwieght(String title) {
     return Container(
@@ -594,77 +562,7 @@ class _registerState extends State<register> {
     );
   }
 
-  Widget _entryFieldWayoption(String title) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            title,
-            style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          TextField(
-              controller: wayoptiion,
-              decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(left: 10),
-                  border: InputBorder.none,
-                  fillColor: Colors.white,
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
-                    borderRadius: BorderRadius.all(Radius.circular(6)),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xffE2E8F0)),
-                    borderRadius: BorderRadius.all(Radius.circular(6)),
-                  ),
-                  filled: true))
-        ],
-      ),
-    );
-  }
-
-  Widget _entryFieldTypeUser(String title) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            title,
-            style: TextStyle(
-                fontFamily: 'rsuregular',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          TextField(
-              controller: typeuser,
-              decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(left: 10),
-                  border: InputBorder.none,
-                  fillColor: Colors.white,
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
-                    borderRadius: BorderRadius.all(Radius.circular(6)),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xffE2E8F0)),
-                    borderRadius: BorderRadius.all(Radius.circular(6)),
-                  ),
-                  filled: true))
-        ],
-      ),
-    );
-  }
+ 
 
   Widget _submitButton() {
     return InkWell(
@@ -759,10 +657,83 @@ class _registerState extends State<register> {
         _entryFieldDateofbirth("วันเกิด"),
         _entryFieldWeight("น้ำหนัก"),
         _entryFieldHeight("ส่วนสูง"),
-        _entryFieldGoaloption("สิ่งที่ต้องการ"),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: Text(
+            "สิ่งที่ต้องการ",
+            style: TextStyle(
+                fontSize: 20, color: Color.fromARGB(255, 255, 255, 255)),
+          ),
+        ),
+        CustomRadio(
+          name: 'Build muscle',
+          value: 0,
+          groupValue: goaltype,
+          onChanged: (value, name) {
+            setState(() {
+              goaltype = value;
+            });
+          },
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        CustomRadio(
+          name: 'Loss muscle',
+          value: 1,
+          groupValue: goaltype,
+          onChanged: (value, name) {
+            setState(() {
+              goaltype = value;
+            });
+          },
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        CustomRadio(
+          name: 'Stay healthy',
+          value: 2,
+          groupValue: goaltype,
+          onChanged: (value, name) {
+            setState(() {
+              goaltype = value;
+            });
+          },
+        ),
         _entryFieldTargetwieght("เป้าหมายน้ำหนักที่ต้องการ"),
         _entryFieldDateoftarget("วันที่เป้าหมาย"),
-        _entryFieldWayoption("วิธีการที่ต้องการ"),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: Text(
+            "วิธีการที่ต้องการ",
+            style: TextStyle(
+                fontSize: 20, color: Color.fromARGB(255, 255, 255, 255)),
+          ),
+        ),
+        CustomRadio(
+          name: 'IF',
+          value: 0,
+          groupValue: waytype,
+          onChanged: (value, name) {
+            setState(() {
+              waytype = value;
+            });
+          },
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        CustomRadio(
+          name: 'Calories',
+          value: 1,
+          groupValue: waytype,
+          onChanged: (value, name) {
+            setState(() {
+              waytype = value;
+            });
+          },
+        ),
         Padding(
           padding: const EdgeInsets.only(bottom: 10),
           child: Text(

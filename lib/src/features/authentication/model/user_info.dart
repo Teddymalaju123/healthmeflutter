@@ -14,7 +14,7 @@ class UserInfo {
   String? dateoftarget;
   String? wayoption;
   String? typeuser;
-  String? imagepassusertrianer;
+  String? userType;
 
   UserInfo(
       {this.username,
@@ -32,7 +32,7 @@ class UserInfo {
       this.dateoftarget,
       this.wayoption,
       this.typeuser,
-      this.imagepassusertrianer});
+      this.userType});
 
   UserInfo.fromJson(Map<String, dynamic> json) {
     username = json['username'];
@@ -50,7 +50,7 @@ class UserInfo {
     dateoftarget = json['dateoftarget'];
     wayoption = json['wayoption'];
     typeuser = json['typeuser'];
-    imagepassusertrianer = json['imagepassusertrianer'];
+    userType = json['userType'];
   }
 
   Map<String, dynamic> toJson() {
@@ -70,7 +70,7 @@ class UserInfo {
     data['dateoftarget'] = this.dateoftarget;
     data['wayoption'] = this.wayoption;
     data['typeuser'] = this.typeuser;
-    data['imagepassusertrianer'] = this.imagepassusertrianer;
+    data['userType'] = this.userType;
     return data;
   }
 }

@@ -40,7 +40,7 @@ class _NavigationMenuBarState extends State<NavigationMenuBar> {
       PersistentBottomNavBarItem(
         contentPadding: 0.0,
         icon: Icon(CupertinoIcons.square_list_fill, size: 23),
-        title: ("รายชื่อเทรนเนอร์"),
+        title: ("รายชื่อผู้ใช้"),
         activeColorPrimary: Color.fromARGB(255, 250, 250, 250),
         inactiveColorPrimary: Color.fromARGB(255, 10, 83, 77),
       ),
@@ -64,7 +64,7 @@ class _NavigationMenuBarState extends State<NavigationMenuBar> {
 
   List<Widget> _buildScreens() {
     return [
-      Home(), register(), Home(), Setting()
+      Home(), Home(), Home(), Setting()
       // MainList(),
       // Test()
     ];
