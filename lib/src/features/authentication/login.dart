@@ -5,6 +5,7 @@ import 'package:flutterapphealthme/src/features/authentication/model/register.da
 import 'package:flutterapphealthme/src/features/authentication/model/user_info.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import '../fitness_app/fitness_app_home_screen.dart';
 import '../routing/navigator.dart';
 
 class Login extends StatefulWidget {
@@ -28,21 +29,23 @@ class _LoginState extends State<Login> {
       "username": username.text,
       "password": password.text,
     });
-    if (response.statusCode == 200){
+    if (response.statusCode == 200) {
       List<UserInfo> data = [];
-        response.data.forEach((element) {
-          data.add(UserInfo.fromJson(element));
-        });
+      response.data.forEach((element) {
+        data.add(UserInfo.fromJson(element));
+      });
       setState(() {
-      userData = data;
-      
-    });
-
-    }
-    if (userData != null && userData.isNotEmpty) {
-      goToMain();
-    } else {
-      noti(context);
+        userData = data;
+      });
+      if (userData != null && userData.isNotEmpty) {
+        if (userData[0].typeuser == "USER") {
+          goToMainUser();
+        } else {
+          goToMain();
+        }
+      } else {
+        noti(context);
+      }
     }
 
     print(response);
@@ -90,16 +93,28 @@ class _LoginState extends State<Login> {
         });
   }
 
+  goToMainUser() {
+    Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
+      MaterialPageRoute(
+        settings: RouteSettings(name: "/MenuBar"),
+        builder: (BuildContext context) {
+          return FitnessAppHomeScreen();
+        },
+      ),
+      (_) => false,
+    );
+  }
+
   goToMain() {
     Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
-        MaterialPageRoute(
-          settings: RouteSettings(name: "/MenuBar"),
-          builder: (BuildContext context) {
-            return NavigationMenuBar();
-          },
-        ),
-        (_) => false,
-      );
+      MaterialPageRoute(
+        settings: RouteSettings(name: "/MenuBar"),
+        builder: (BuildContext context) {
+          return NavigationMenuBar();
+        },
+      ),
+      (_) => false,
+    );
   }
 
   Widget _entryFieldUsername(String title, {bool isPassword = false}) {
