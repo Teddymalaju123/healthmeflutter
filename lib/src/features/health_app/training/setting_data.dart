@@ -2,6 +2,8 @@ import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../authentication/login.dart';
+
 class SettingData extends StatefulWidget {
   const SettingData({super.key, this.animationController});
   final AnimationController? animationController;
@@ -12,6 +14,18 @@ class SettingData extends StatefulWidget {
 class _SettingDataState extends State<SettingData>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
+  goToLogin() {
+    Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
+      MaterialPageRoute(
+        settings: RouteSettings(name: "/login"),
+        builder: (BuildContext context) {
+          return Login();
+        },
+      ),
+      (_) => false,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +77,9 @@ class _SettingDataState extends State<SettingData>
               settingsGroupTitle: "Account",
               items: [
                 SettingsItem(
-                  onTap: () {},
+                  onTap: () {
+                    goToLogin();
+                  },
                   icons: Icons.exit_to_app_rounded,
                   title: "Sign Out",
                 ),
