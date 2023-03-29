@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapphealthme/src/features/health_app/training/setting_data.dart';
 import 'package:flutterapphealthme/src/features/health_app/training/training_screen.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'fitness_app_theme.dart';
@@ -89,7 +90,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                       MyDiaryScreen(animationController: animationController);
                 });
               });
-            } else if (index == 1 || index == 3) {
+            } else if (index == 1) {
               animationController?.reverse().then<dynamic>((data) {
                 if (!mounted) {
                   return;
@@ -97,6 +98,16 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                 setState(() {
                   tabBody =
                       TrainingScreen(animationController: animationController);
+                });
+              });
+            } else if (index == 3) {
+              animationController?.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      SettingData(animationController: animationController);
                 });
               });
             }
