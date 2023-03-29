@@ -24,9 +24,6 @@ class _LoginState extends State<Login> {
   List<UserInfo> userData = [];
 
   login() async {
-    print(username.text);
-    print(password.text);
-
     final response = await dio.post('http://192.168.1.115:5000/login', data: {
       "username": username.text,
       "password": password.text,

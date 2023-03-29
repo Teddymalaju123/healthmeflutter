@@ -4,6 +4,7 @@ import 'package:flutterapphealthme/src/features/authentication/model/register.da
 import 'package:flutterapphealthme/src/features/setting/setting.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import '../main/home.dart';
+import '../noti/noti.dart';
 
 class NavigationMenuBar extends StatefulWidget {
   final String? selectPage;
@@ -64,7 +65,7 @@ class _NavigationMenuBarState extends State<NavigationMenuBar> {
 
   List<Widget> _buildScreens() {
     return [
-      Home(), Home(), Home(), Setting()
+      Home(), Home(), Noti(), Setting()
       // MainList(),
       // Test()
     ];

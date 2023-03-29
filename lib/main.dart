@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapphealthme/src/features/authentication/login.dart';
 import 'package:flutterapphealthme/src/features/health_app/fitness_app_home_screen.dart';
+import 'package:flutterapphealthme/src/features/routing/navigator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: Login());
+        home: NavigationMenuBar());
   }
 }
 
