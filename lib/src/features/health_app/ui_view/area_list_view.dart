@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../../authentication/model/user_info.dart';
 import '../fitness_app_theme.dart';
@@ -33,6 +34,25 @@ class _AreaListViewState extends State<AreaListView>
     final response = await dio.get(
       'http://192.168.1.115:5000/get-user-training',
     );
+    if (response.statusCode == 200) {
+      List<UserInfo> data = [];
+      response.data.forEach((element) {
+        data.add(UserInfo.fromJson(element));
+      });
+      setState(() {
+        userData = data;
+      });
+    }
+  }
+
+  static FlutterSecureStorage storageToken = new FlutterSecureStorage();
+  sendNoti(UserInfo data) async {
+    final username = await storageToken.read(key: 'username');
+    final response = await dio.post('http://192.168.1.115:5000/login', data: {
+      "user": username,
+      "status": "waiting",
+      "usertrainer": data.username
+    });
     if (response.statusCode == 200) {
       List<UserInfo> data = [];
       response.data.forEach((element) {
@@ -95,6 +115,9 @@ class _AreaListViewState extends State<AreaListView>
                         imagepath:
                             areaListData[random.nextInt(areaListData.length)],
                         userData: userData[index],
+                        onChange: (data) {
+                          sendNoti(data!);
+                        },
                         animation: animation,
                         animationController: animationController!,
                       );
@@ -117,14 +140,15 @@ class _AreaListViewState extends State<AreaListView>
 }
 
 class AreaView extends StatelessWidget {
-  const AreaView({
-    Key? key,
-    this.imagepath,
-    this.animationController,
-    this.userData,
-    this.animation,
-  }) : super(key: key);
-
+  const AreaView(
+      {Key? key,
+      this.imagepath,
+      this.animationController,
+      this.userData,
+      this.animation,
+      this.onChange})
+      : super(key: key);
+  final Function(UserInfo?)? onChange;
   final String? imagepath;
   final AnimationController? animationController;
   final Animation<double>? animation;
@@ -166,7 +190,9 @@ class AreaView extends StatelessWidget {
                           const BorderRadius.all(Radius.circular(8.0)),
                       splashColor:
                           FitnessAppTheme.nearlyDarkBlue.withOpacity(0.2),
-                      onTap: () {},
+                      onTap: () {
+                        onChange!.call(userData);
+                      },
                       child: Column(
                         children: <Widget>[
                           Padding(

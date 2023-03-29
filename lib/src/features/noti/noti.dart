@@ -61,7 +61,7 @@ class _NotiState extends State<Noti> {
                   onTap: () {},
                   leading: CircleAvatar(
                       backgroundColor: Colors.blue,
-                      child: Text(index.toString())),
+                      child: Text((index + 1).toString())),
                   title: Text(
                       'ผู้ขอเข้าเทน ${userData[index].user} : สถานะ ${userData[index].status}'),
                 ));
