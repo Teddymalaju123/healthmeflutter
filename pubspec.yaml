@@ -39,7 +39,7 @@ dependencies:
   babstrap_settings_screen: ^0.1.5+1
   flutter_settings_screens: ^0.2.2+1
   flutter_secure_storage: ^8.0.0
-
+  settings_ui: ^2.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

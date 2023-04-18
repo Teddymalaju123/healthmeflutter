@@ -2,9 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../widget/button_action.dart';
 import 'model/usertrainer.dart';
+import 'noti_deatil.dart';
 
 class Noti extends StatefulWidget {
   const Noti({super.key});
@@ -171,7 +173,15 @@ class _NotiState extends State<Noti> {
                   ButtonAction(
                     type: 'รายละเอียด',
                     label: 'รายละเอียด',
-                    onTap: () => {},
+                    onTap: () => {
+                      PersistentNavBarNavigator.pushNewScreen(
+                        context,
+                        screen: NotiDeatil(dataReq: data),
+                        withNavBar: false,
+                        pageTransitionAnimation:
+                            PageTransitionAnimation.cupertino,
+                      )
+                    },
                   ),
                   ButtonAction(
                     type: 'สร้างไดอารี่',
