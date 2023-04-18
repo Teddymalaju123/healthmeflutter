@@ -92,6 +92,7 @@ class _NotiState extends State<Noti> {
       "usertrainer": username,
       "status": status,
       "user": data.username,
+      "id" : data.id
     });
     if (response.statusCode == 200) {
       getData();
