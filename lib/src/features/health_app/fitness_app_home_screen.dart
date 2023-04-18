@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapphealthme/src/features/health_app/training/setting_data.dart';
 import 'package:flutterapphealthme/src/features/health_app/training/training_screen.dart';
+import 'package:flutterapphealthme/src/features/health_app/training/training_screen2.dart';
+import 'package:flutterapphealthme/src/features/health_app/ui_view/confirm.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'fitness_app_theme.dart';
 import 'models/tabIcon_data.dart';
@@ -80,7 +82,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
           tabIconsList: tabIconsList,
           addClick: () {},
           changeIndex: (int index) {
-            if (index == 0 || index == 2) {
+            if (index == 0) {
               animationController?.reverse().then<dynamic>((data) {
                 if (!mounted) {
                   return;
@@ -98,6 +100,17 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                 setState(() {
                   tabBody =
                       TrainingScreen(animationController: animationController);
+                });
+              });
+            }
+            if (index == 2) {
+              animationController?.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      TrainingScreen2(animationController: animationController);
                 });
               });
             } else if (index == 3) {
