@@ -18,7 +18,7 @@ class _NotiState extends State<Noti> {
 
   getData() async {
     final username = await storageToken.read(key: 'username');
-    final response = await dio.post('http://192.168.1.115:5000/train', data: {
+    final response = await dio.post('http://192.168.1.100:5000/train', data: {
       "usertrainer": username,
       "status": "waiting",
     });

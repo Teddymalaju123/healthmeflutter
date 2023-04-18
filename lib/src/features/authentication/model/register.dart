@@ -44,7 +44,7 @@ class _registerState extends State<register> {
     print(password.text);
 
     final response =
-        await dio.post('http://192.168.1.115:5000/register', data: {
+        await dio.post('http://192.168.1.100:5000/register', data: {
       "username": username.text,
       "password": password.text,
       "email": email.text,
