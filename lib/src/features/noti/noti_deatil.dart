@@ -42,7 +42,7 @@ class NotiDeatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'ชื่อ - นามสกุล',
+                      'น้ำหนัก',
                       style: TextStyle(
                         fontFamily: 'prompt',
                         fontSize: 12,
@@ -50,7 +50,7 @@ class NotiDeatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.email}",
+                      "${dataReq.weight}",
                       style: TextStyle(
                           fontFamily: 'prompt',
                           fontSize: 12,
@@ -61,7 +61,7 @@ class NotiDeatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'ผู้ใช้งาน',
+                      'ส่วนสูง',
                       style: TextStyle(
                         fontFamily: 'prompt',
                         fontSize: 12,
@@ -69,7 +69,7 @@ class NotiDeatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.email}",
+                      "${dataReq.height}",
                       style: TextStyle(
                           fontFamily: 'prompt',
                           fontSize: 12,
@@ -80,7 +80,7 @@ class NotiDeatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'ตำแหน่ง',
+                      'น้ำหนักที่ต้องการ',
                       style: TextStyle(
                         fontFamily: 'prompt',
                         fontSize: 12,
@@ -88,7 +88,7 @@ class NotiDeatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.email}",
+                      "${dataReq.targetweight}",
                       style: TextStyle(
                           fontFamily: 'prompt',
                           fontSize: 12,
@@ -99,7 +99,7 @@ class NotiDeatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'เบอร์โทรศัพท์',
+                      'เป้าหมายวันที่ต้องการ',
                       style: TextStyle(
                         fontFamily: 'prompt',
                         fontSize: 12,
@@ -107,7 +107,7 @@ class NotiDeatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.email}",
+                      "${dataReq.dateoftarget}",
                       style: TextStyle(
                           fontFamily: 'prompt',
                           fontSize: 12,
@@ -118,7 +118,7 @@ class NotiDeatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'อีเมล',
+                      'ชื่อ',
                       style: TextStyle(
                         fontFamily: 'prompt',
                         fontSize: 12,
@@ -126,7 +126,7 @@ class NotiDeatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.email}",
+                      "${dataReq.firstname}",
                       style: TextStyle(
                           fontFamily: 'prompt',
                           fontSize: 12,
