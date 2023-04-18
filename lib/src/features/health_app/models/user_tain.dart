@@ -9,14 +9,14 @@ class UserTain {
   String? firstname;
   String? lastname;
   String? phonenumber;
-  Null? gender;
-  Null? dateofbirth;
-  Null? weight;
-  Null? height;
-  Null? goaloption;
-  Null? targetweight;
-  Null? dateoftarget;
-  Null? wayoption;
+  String? gender;
+  String? dateofbirth;
+  String? weight;
+  String? height;
+  String? goaloption;
+  String? targetweight;
+  String? dateoftarget;
+  String? wayoption;
   String? typeuser;
   String? usertype;
 

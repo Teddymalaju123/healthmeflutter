@@ -3,10 +3,13 @@ import 'dart:math';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../authentication/model/user_info.dart';
 import '../fitness_app_theme.dart';
+import '../models/confirm_model.dart';
 import '../models/user_tain.dart';
+import 'deatil.dart';
 
 class AreaListView2 extends StatefulWidget {
   const AreaListView2(
@@ -32,8 +35,8 @@ class _AreaListView2State extends State<AreaListView2>
   final dio = Dio();
   List<UserTain> userData = [];
   getUser() async {
-    final response =
-        await dio.post('http://192.168.1.100:5000/get-usertrainer', data: {"user" : "testnew123"});
+    final response = await dio.post('http://192.168.1.100:5000/get-usertrainer',
+        data: {"user": "testnew123"});
     if (response.statusCode == 200) {
       List<UserTain> data = [];
       response.data.forEach((element) {
@@ -55,6 +58,25 @@ class _AreaListView2State extends State<AreaListView2>
           "usertrainer": data.username
         });
     if (response.statusCode == 200) {}
+  }
+
+  ConfirmModel? dataDetail;
+  getData(int id) async {
+    final response = await dio.get(
+      'http://192.168.1.100:5000/get-user-byusername/${id}',
+    );
+    if (response.statusCode == 200) {
+      List<ConfirmModel> data = [];
+      response.data.forEach((element) {
+        data.add(ConfirmModel.fromJson(element));
+      });
+      PersistentNavBarNavigator.pushNewScreen(
+        context,
+        screen: Deatil(dataReq: data[0]),
+        withNavBar: false,
+        pageTransitionAnimation: PageTransitionAnimation.cupertino,
+      );
+    }
   }
 
   @override
@@ -109,7 +131,7 @@ class _AreaListView2State extends State<AreaListView2>
                             areaListData[random.nextInt(areaListData.length)],
                         userData: userData[index],
                         onChange: (data) {
-                          sendNoti(data!);
+                          getData(userData[index].id!);
                         },
                         animation: animation,
                         animationController: animationController!,
