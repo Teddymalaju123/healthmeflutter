@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+import '../../widget/button_action.dart';
 import 'model/usertrainer.dart';
 
 class Noti extends StatefulWidget {
@@ -15,8 +17,52 @@ class _NotiState extends State<Noti> {
   static FlutterSecureStorage storageToken = new FlutterSecureStorage();
   final dio = Dio();
   List<UserTrainer> userData = [];
-
+  // List<UserTrainer> userData = [
+  //   UserTrainer(
+  //       id: 3,
+  //       user: "testnew123",
+  //       status: "waiting",
+  //       usertrainer: "trainertest2",
+  //       username: "testnew123",
+  //       password: "test123",
+  //       email: "testnew@new.com",
+  //       firstname: "jiramate",
+  //       lastname: "saratnong",
+  //       phonenumber: "0937830426",
+  //       gender: "ชาย",
+  //       dateofbirth: "11/02/2545",
+  //       weight: "68",
+  //       height: "175",
+  //       goaloption: "Build muscle",
+  //       targetweight: "60",
+  //       dateoftarget: "11/09/2565",
+  //       wayoption: "IF",
+  //       typeuser: "1",
+  //       usertype: "USER"),
+  //   UserTrainer(
+  //       id: 4,
+  //       user: "testnew123",
+  //       status: "waiting",
+  //       usertrainer: "trainertest2",
+  //       username: "testnew123",
+  //       password: "test123",
+  //       email: "testnew@new.com",
+  //       firstname: "jiramate",
+  //       lastname: "saratnong",
+  //       phonenumber: "0937830426",
+  //       gender: "ชาย",
+  //       dateofbirth: "11/02/2545",
+  //       weight: "68",
+  //       height: "175",
+  //       goaloption: "Build muscle",
+  //       targetweight: "60",
+  //       dateoftarget: "11/09/2565",
+  //       wayoption: "IF",
+  //       typeuser: "1",
+  //       usertype: "USER")
+  // ];
   getData() async {
+    userData.clear();
     final username = await storageToken.read(key: 'username');
     final response = await dio.post('http://192.168.1.100:5000/train', data: {
       "usertrainer": username,
@@ -33,10 +79,115 @@ class _NotiState extends State<Noti> {
     }
   }
 
+//   {
+//     "user" : "testnew123",
+//     "status" : "approve",
+//     "usertrainer" : "trainertest2"
+// }
+
+  action(String status, UserTrainer data) async {
+    final username = await storageToken.read(key: 'username');
+    final response =
+        await dio.post('http://192.168.1.100:5000/up-train', data: {
+      "usertrainer": username,
+      "status": status,
+      "user": data.username,
+    });
+    if (response.statusCode == 200) {
+      getData();
+    }
+  }
+
   @override
   void initState() {
     getData();
     super.initState();
+  }
+
+  getPopupDetail(BuildContext context, UserTrainer data) {
+    showModalBottomSheet<void>(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(13),
+        ),
+      ),
+      context: context,
+      builder: (BuildContext context) {
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 4, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CupertinoButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.close,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    '',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  CupertinoButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.close,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+              child: Column(
+                children: [
+                  ButtonAction(
+                    type: 'อนุมัติ',
+                    label: 'อนุมัติ',
+                    onTap: () {
+                      action("approve", data);
+                    },
+                  ),
+                  ButtonAction(
+                    type: 'ปฏิเสธ',
+                    label: 'ปฏิเสธ',
+                    onTap: () {
+                      action("reject", data);
+                    },
+                  ),
+                  ButtonAction(
+                    type: 'รายละเอียด',
+                    label: 'รายละเอียด',
+                    onTap: () => {},
+                  ),
+                  ButtonAction(
+                    type: 'สร้างไดอารี่',
+                    label: 'สร้างไดอารี่',
+                    onTap: () {},
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+          ],
+        );
+      },
+    ).then((value) async {});
   }
 
   @override
@@ -58,7 +209,9 @@ class _NotiState extends State<Noti> {
                 // The color depends on this is selected or not
                 color: Colors.white,
                 child: ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    getPopupDetail(context, userData[index]);
+                  },
                   leading: CircleAvatar(
                       backgroundColor: Colors.blue,
                       child: Text((index + 1).toString())),
