@@ -66,7 +66,6 @@ class _NotiState extends State<Noti> {
     final username = await storageToken.read(key: 'username');
     final response = await dio.post('http://192.168.1.100:5000/train', data: {
       "usertrainer": username,
-      "status": "waiting",
     });
     if (response.statusCode == 200) {
       List<UserTrainer> data = [];
@@ -87,13 +86,13 @@ class _NotiState extends State<Noti> {
 
   action(String status, UserTrainer data) async {
     final username = await storageToken.read(key: 'username');
-    final response =
-        await dio.post('http://192.168.1.100:5000/up-train', data: {
-      "usertrainer": username,
-      "status": status,
-      "user": data.username,
-      "id" : data.id
-    });
+    final response = await dio.post('http://192.168.1.100:5000/up-train',
+        data: {
+          "usertrainer": username,
+          "status": status,
+          "user": data.username,
+          "id": data.id
+        });
     if (response.statusCode == 200) {
       getData();
     }
@@ -191,6 +190,16 @@ class _NotiState extends State<Noti> {
     ).then((value) async {});
   }
 
+  checkStatus(String status) {
+    if (status == "approve") {
+      return "อนุมัติ";
+    }
+    if (status == "reject") {
+      return "ปฏิเสธ";
+    }
+    return "รออนุมัติ";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -206,8 +215,6 @@ class _NotiState extends State<Noti> {
                 margin: const EdgeInsets.all(10),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
-
-                // The color depends on this is selected or not
                 color: Colors.white,
                 child: ListTile(
                   onTap: () {
@@ -217,7 +224,7 @@ class _NotiState extends State<Noti> {
                       backgroundColor: Colors.blue,
                       child: Text((index + 1).toString())),
                   title: Text(
-                      'ผู้ขอเข้าเทน ${userData[index].user} : สถานะ ${userData[index].status}'),
+                      'ผู้ขอเข้าเทน ${userData[index].user} : สถานะ ${checkStatus(userData[index].status!)}'),
                 ));
           },
         )));
