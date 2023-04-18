@@ -63,7 +63,7 @@ class _AreaListView2State extends State<AreaListView2>
   ConfirmModel? dataDetail;
   getData(int id) async {
     final response = await dio.get(
-      'http://192.168.1.100:5000/get-user-byusername/${id}',
+      'http://192.168.1.100:5000/get-daily-bydaily/${id}',
     );
     if (response.statusCode == 200) {
       List<ConfirmModel> data = [];

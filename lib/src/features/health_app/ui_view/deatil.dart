@@ -42,7 +42,45 @@ class Deatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'น้ำหนัก',
+                      'อาหาร',
+                      style: TextStyle(
+                        fontFamily: 'prompt',
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${dataReq.food}",
+                      style: TextStyle(
+                          fontFamily: 'prompt',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w800,
+                          color: Color.fromARGB(255, 10, 158, 126)),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'การออกกำลังกาย',
+                      style: TextStyle(
+                        fontFamily: 'prompt',
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${dataReq.exercise}",
+                      style: TextStyle(
+                          fontFamily: 'prompt',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w800,
+                          color: Color.fromARGB(255, 10, 158, 126)),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'แคลอรี่ที่เผาผลาญ',
                       style: TextStyle(
                         fontFamily: 'prompt',
                         fontSize: 12,
@@ -61,7 +99,7 @@ class Deatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'ส่วนสูง',
+                      'การพักผ่อน',
                       style: TextStyle(
                         fontFamily: 'prompt',
                         fontSize: 12,
@@ -69,70 +107,12 @@ class Deatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.calories}",
+                      "${dataReq.sleep}",
                       style: TextStyle(
                           fontFamily: 'prompt',
                           fontSize: 12,
                           fontWeight: FontWeight.w800,
                           color: Color.fromARGB(255, 10, 158, 126)),
-                    ),
-                  ),
-                  SettingsTile.navigation(
-                    leading: null,
-                    title: Text(
-                      'น้ำหนักที่ต้องการ',
-                      style: TextStyle(
-                        fontFamily: 'prompt',
-                        fontSize: 12,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                    trailing: Text(
-                      "${dataReq.calories}",
-                      style: TextStyle(
-                          fontFamily: 'prompt',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
-                    ),
-                  ),
-                  SettingsTile.navigation(
-                    leading: null,
-                    title: Text(
-                      'เป้าหมายวันที่ต้องการ',
-                      style: TextStyle(
-                        fontFamily: 'prompt',
-                        fontSize: 12,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                    trailing: Text(
-                      "${dataReq.calories}",
-                      style: TextStyle(
-                          fontFamily: 'prompt',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
-                    ),
-                  ),
-                  SettingsTile.navigation(
-                    leading: null,
-                    title: Text(
-                      'ชื่อ',
-                      style: TextStyle(
-                        fontFamily: 'prompt',
-                        fontSize: 12,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                    trailing: Text(
-                      "${dataReq.calories}",
-                      style: TextStyle(
-                          fontFamily: 'prompt',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126),
-                          overflow: TextOverflow.fade),
                     ),
                   ),
                 ],
