@@ -25,20 +25,23 @@ class _createlisthealthState extends State<createlisthealth> {
 
   save() async {
     final response =
-        await dio.post('http://192.168.1.100:5000/up-train', data: {
+        await dio.post('http://192.168.1.115:5000/createdaily', data: {
       "food": food.text,
       "exercise": exercise.text,
-      "calories": "trainertest2",
+      "calories": calories.text,
       "sleep": sleep.text,
       "Idtrainer": widget.dataReq.id,
       "status": "waiting"
     });
+    print(food.text);
+    print(exercise.text);
+    print(calories.text);
+    print(sleep.text);
     if (response.statusCode == 200) {
       Navigator.of(context).pop();
     }
   }
 
-  @override
   Widget _entryFieldFood(String title) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
