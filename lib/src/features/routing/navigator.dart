@@ -29,22 +29,22 @@ class _NavigationMenuBarState extends State<NavigationMenuBar> {
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
-      PersistentBottomNavBarItem(
-        contentPadding: 0.0,
-        inactiveColorSecondary: CupertinoColors.black,
-        icon: Icon(CupertinoIcons.house, size: 23),
-        title: ("หน้าหลัก"),
-        iconSize: 50,
-        activeColorPrimary: Color.fromARGB(255, 250, 250, 250),
-        inactiveColorPrimary: Color.fromARGB(255, 10, 83, 77),
-      ),
-      PersistentBottomNavBarItem(
-        contentPadding: 0.0,
-        icon: Icon(CupertinoIcons.square_list_fill, size: 23),
-        title: ("รายชื่อผู้ใช้"),
-        activeColorPrimary: Color.fromARGB(255, 250, 250, 250),
-        inactiveColorPrimary: Color.fromARGB(255, 10, 83, 77),
-      ),
+      // PersistentBottomNavBarItem(
+      //   contentPadding: 0.0,
+      //   inactiveColorSecondary: CupertinoColors.black,
+      //   icon: Icon(CupertinoIcons.house, size: 23),
+      //   title: ("หน้าหลัก"),
+      //   iconSize: 50,
+      //   activeColorPrimary: Color.fromARGB(255, 250, 250, 250),
+      //   inactiveColorPrimary: Color.fromARGB(255, 10, 83, 77),
+      // ),
+      // PersistentBottomNavBarItem(
+      //   contentPadding: 0.0,
+      //   icon: Icon(CupertinoIcons.square_list_fill, size: 23),
+      //   title: ("รายชื่อผู้ใช้"),
+      //   activeColorPrimary: Color.fromARGB(255, 250, 250, 250),
+      //   inactiveColorPrimary: Color.fromARGB(255, 10, 83, 77),
+      // ),
       PersistentBottomNavBarItem(
         contentPadding: 0.0,
         // icon: Icon(CupertinoIcons.clear_circled),
@@ -65,7 +65,7 @@ class _NavigationMenuBarState extends State<NavigationMenuBar> {
 
   List<Widget> _buildScreens() {
     return [
-      Home(), Home(), Noti(), Setting()
+       Noti(), Setting()
       // MainList(),
       // Test()
     ];

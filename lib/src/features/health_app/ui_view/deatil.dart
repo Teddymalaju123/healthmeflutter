@@ -14,7 +14,7 @@ class Deatil extends StatelessWidget {
 
   sendNoti(BuildContext context) async {
     final response =
-        await dio.post('http://192.168.1.100:5000/edit-status', data: {
+        await dio.post('http://192.168.1.100:5000/up-daily', data: {
       "dailyNo": dataReq.dailyNo,
       "status": "success",
     });
