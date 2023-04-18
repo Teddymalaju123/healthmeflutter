@@ -90,15 +90,15 @@ class _BottomBarViewState extends State<BottomBarView>
                                       .value *
                                   0.0,
                             ),
-                            // Expanded(
-                            //   child: TabIcons(
-                            //       tabIconData: widget.tabIconsList?[2],
-                            //       removeAllSelect: () {
-                            //         setRemoveAllSelection(
-                            //             widget.tabIconsList?[2]);
-                            //         widget.changeIndex!(2);
-                            //       }),
-                            // ),
+                            Expanded(
+                              child: TabIcons(
+                                  tabIconData: widget.tabIconsList?[2],
+                                  removeAllSelect: () {
+                                    setRemoveAllSelection(
+                                        widget.tabIconsList?[2]);
+                                    widget.changeIndex!(2);
+                                  }),
+                            ),
                             Expanded(
                               child: TabIcons(
                                   tabIconData: widget.tabIconsList?[3],

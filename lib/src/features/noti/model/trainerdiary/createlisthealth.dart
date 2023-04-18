@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutterapphealthme/src/features/main/home.dart';
 
 import '../../../../widget/CustomRadio.dart';
@@ -21,22 +22,46 @@ class _createlisthealthState extends State<createlisthealth> {
   TextEditingController exercise = new TextEditingController();
   TextEditingController calories = new TextEditingController();
   TextEditingController sleep = new TextEditingController();
+  static FlutterSecureStorage storageToken = new FlutterSecureStorage();
   final dio = Dio();
+  List<UserTrainer> userData = [];
+  getData() async {
+    userData.clear();
+    final username = await storageToken.read(key: 'username');
+    final response = await dio.post('http://192.168.1.100:5000/train', data: {
+      "usertrainer": username,
+    });
+    if (response.statusCode == 200) {
+      List<UserTrainer> data = [];
+      response.data.forEach((element) {
+        data.add(UserTrainer.fromJson(element));
+      });
+      setState(() {
+        userData = data;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
 
   save() async {
-    final response =
-        await dio.post('http://192.168.1.115:5000/createdaily', data: {
-      "food": food.text,
+    print(food.text);
+    print(exercise.text);
+    print(calories.text);
+    print(sleep.text);
+    final response = await dio.post('http://192.168.1.100:5000/createdaily', data: {
+  "food": food.text,
       "exercise": exercise.text,
       "calories": calories.text,
       "sleep": sleep.text,
       "Idtrainer": widget.dataReq.id,
       "status": "waiting"
     });
-    print(food.text);
-    print(exercise.text);
-    print(calories.text);
-    print(sleep.text);
+    
     if (response.statusCode == 200) {
       Navigator.of(context).pop();
     }
