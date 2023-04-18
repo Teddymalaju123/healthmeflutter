@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -5,9 +6,23 @@ import 'package:settings_ui/settings_ui.dart';
 
 import '../models/confirm_model.dart';
 
+final dio = Dio();
+
 class Deatil extends StatelessWidget {
   final ConfirmModel dataReq;
   const Deatil({super.key, required this.dataReq});
+
+  sendNoti(BuildContext context) async {
+    final response =
+        await dio.post('http://192.168.1.100:5000/edit-status', data: {
+      "dailyNo": dataReq.dailyNo,
+      "status": "success",
+    });
+    if (response.statusCode == 200) {
+      Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,6 +40,17 @@ class Deatil extends StatelessWidget {
             Navigator.of(context).pop();
           },
         ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.check_box_outlined,
+              size: 23,
+            ),
+            onPressed: () {
+              sendNoti(context);
+            },
+          ),
+        ],
       ),
       body: Row(
         children: [
