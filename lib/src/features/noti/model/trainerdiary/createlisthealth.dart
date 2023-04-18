@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -5,9 +6,11 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutterapphealthme/src/features/main/home.dart';
 
 import '../../../../widget/CustomRadio.dart';
+import '../usertrainer.dart';
 
 class createlisthealth extends StatefulWidget {
-  const createlisthealth({super.key});
+  final UserTrainer dataReq;
+  const createlisthealth({super.key, required this.dataReq});
 
   @override
   State<createlisthealth> createState() => _createlisthealthState();
@@ -18,7 +21,22 @@ class _createlisthealthState extends State<createlisthealth> {
   TextEditingController exercise = new TextEditingController();
   TextEditingController calories = new TextEditingController();
   TextEditingController sleep = new TextEditingController();
-  
+  final dio = Dio();
+
+  save() async {
+    final response =
+        await dio.post('http://192.168.1.100:5000/up-train', data: {
+      "food": food.text,
+      "exercise": exercise.text,
+      "calories": "trainertest2",
+      "sleep": sleep.text,
+      "Idtrainer": widget.dataReq.id,
+      "status": "waiting"
+    });
+    if (response.statusCode == 200) {
+      Navigator.of(context).pop();
+    }
+  }
 
   @override
   Widget _entryFieldFood(String title) {
@@ -93,7 +111,7 @@ class _createlisthealthState extends State<createlisthealth> {
     );
   }
 
-   Widget _entryFieldCalories(String title) {
+  Widget _entryFieldCalories(String title) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -129,7 +147,7 @@ class _createlisthealthState extends State<createlisthealth> {
     );
   }
 
-   Widget _entryFieldSleep(String title) {
+  Widget _entryFieldSleep(String title) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -168,7 +186,7 @@ class _createlisthealthState extends State<createlisthealth> {
   Widget _submitButton() {
     return InkWell(
       onTap: () {
-        Home();
+        save();
       },
       child: Container(
         width: MediaQuery.of(context).size.width,

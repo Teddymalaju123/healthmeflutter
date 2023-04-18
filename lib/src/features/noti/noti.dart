@@ -5,6 +5,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../widget/button_action.dart';
+import 'model/trainerdiary/createlisthealth.dart';
 import 'model/usertrainer.dart';
 import 'noti_deatil.dart';
 
@@ -186,7 +187,15 @@ class _NotiState extends State<Noti> {
                   ButtonAction(
                     type: 'สร้างไดอารี่',
                     label: 'สร้างไดอารี่',
-                    onTap: () {},
+                    onTap: () {
+                      PersistentNavBarNavigator.pushNewScreen(
+                        context,
+                        screen: createlisthealth(dataReq: data),
+                        withNavBar: false,
+                        pageTransitionAnimation:
+                            PageTransitionAnimation.cupertino,
+                      );
+                    },
                   )
                 ],
               ),
