@@ -32,9 +32,8 @@ class _AreaListView2State extends State<AreaListView2>
   final dio = Dio();
   List<UserTain> userData = [];
   getUser() async {
-    final response = await dio.get(
-      'http://192.168.1.115:5000/get-user-training',
-    );
+    final response =
+        await dio.post('http://192.168.1.100:5000/get-usertrainer', data: {"user" : "testnew123"});
     if (response.statusCode == 200) {
       List<UserTain> data = [];
       response.data.forEach((element) {
@@ -49,7 +48,7 @@ class _AreaListView2State extends State<AreaListView2>
   static FlutterSecureStorage storageToken = new FlutterSecureStorage();
   sendNoti(UserTain data) async {
     final username = await storageToken.read(key: 'username');
-    final response = await dio.post('http://192.168.1.115:5000/edit-status',
+    final response = await dio.post('http://192.168.1.100:5000/edit-status',
         data: {
           "user": username,
           "status": "waiting",

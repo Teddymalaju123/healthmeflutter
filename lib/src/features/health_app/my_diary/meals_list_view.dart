@@ -28,7 +28,7 @@ class _MealsListViewState extends State<MealsListView>
   final dio = Dio();
   // List<Modulefood> dataList = [];
   // getDataApi() async {
-  //   final response = await dio.get('http://192.168.1.115:5000/login');
+  //   final response = await dio.get('http://192.168.1.100:5000/login');
   //   if (response.statusCode == 200) {
   //     List<Modulefood> data = [];
   //     response.data.forEach((element) {

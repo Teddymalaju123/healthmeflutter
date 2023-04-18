@@ -26,7 +26,7 @@ class _BodyMeasurementViewState extends State<BodyMeasurementView> {
   getUser() async {
     final username = await storageToken.read(key: 'username');
     final response = await dio.get(
-      'http://192.168.1.115:5000/get-user-byusername/${username}',
+      'http://192.168.1.100:5000/get-user-byusername/${username}',
     );
     if (response.statusCode == 200) {
       List<UserInfo> data = [];
@@ -197,37 +197,39 @@ class _BodyMeasurementViewState extends State<BodyMeasurementView> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 if (userData != null)
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text(
-                                      '${userData!.dateoftarget}',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontFamily: FitnessAppTheme.fontName,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16,
-                                        letterSpacing: -0.2,
-                                        color: FitnessAppTheme.darkText,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 6),
-                                      child: Text(
-                                        'วันที่เป้าหมาย',
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: <Widget>[
+                                      Text(
+                                        '${userData!.dateoftarget}',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: FitnessAppTheme.fontName,
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 12,
-                                          color: FitnessAppTheme.grey
-                                              .withOpacity(0.5),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 16,
+                                          letterSpacing: -0.2,
+                                          color: FitnessAppTheme.darkText,
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 6),
+                                        child: Text(
+                                          'วันที่เป้าหมาย',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontFamily:
+                                                FitnessAppTheme.fontName,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 12,
+                                            color: FitnessAppTheme.grey
+                                                .withOpacity(0.5),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                               ],
                             ),
                           ),

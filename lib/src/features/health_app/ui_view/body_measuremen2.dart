@@ -26,7 +26,7 @@ class _BodyMeasurementView2State extends State<BodyMeasurementView2> {
   getUser() async {
     final username = await storageToken.read(key: 'username');
     final response = await dio.get(
-      'http://192.168.1.115:5000/get-user-byusername/${username}',
+      'http://192.168.1.100:5000/get-user-byusername/${username}',
     );
     if (response.statusCode == 200) {
       List<UserInfo> data = [];
