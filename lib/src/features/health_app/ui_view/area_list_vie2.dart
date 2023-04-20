@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import '../../../constants/constant.dart';
 import '../../authentication/model/user_info.dart';
 import '../fitness_app_theme.dart';
 import '../models/confirm_model.dart';
@@ -35,8 +36,8 @@ class _AreaListView2State extends State<AreaListView2>
   final dio = Dio();
   List<UserTain> userData = [];
   getUser() async {
-    final response = await dio.post('http://192.168.1.100:5000/get-usertrainer',
-        data: {"user": "testnew123"});
+    final response =
+        await dio.post('${host}/get-usertrainer', data: {"user": "testnew123"});
     if (response.statusCode == 200) {
       List<UserTain> data = [];
       response.data.forEach((element) {
@@ -51,19 +52,18 @@ class _AreaListView2State extends State<AreaListView2>
   static FlutterSecureStorage storageToken = new FlutterSecureStorage();
   sendNoti(UserTain data) async {
     final username = await storageToken.read(key: 'username');
-    final response = await dio.post('http://192.168.1.100:5000/edit-status',
-        data: {
-          "user": username,
-          "status": "waiting",
-          "usertrainer": data.username
-        });
+    final response = await dio.post('${host}/edit-status', data: {
+      "user": username,
+      "status": "waiting",
+      "usertrainer": data.username
+    });
     if (response.statusCode == 200) {}
   }
 
   ConfirmModel? dataDetail;
   getData(int id) async {
     final response = await dio.get(
-      'http://192.168.1.100:5000/get-daily-bydaily/${id}',
+      '${host}/get-daily-bydaily/${id}',
     );
     if (response.statusCode == 200) {
       List<ConfirmModel> data = [];

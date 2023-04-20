@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+import '../../../constants/constant.dart';
 import '../../authentication/model/user_info.dart';
 import '../fitness_app_theme.dart';
 
@@ -26,7 +27,7 @@ class _BodyMeasurementViewState extends State<BodyMeasurementView> {
   getUser() async {
     final username = await storageToken.read(key: 'username');
     final response = await dio.get(
-      'http://192.168.1.100:5000/get-user-byusername/${username}',
+      '${host}/get-user-byusername/${username}',
     );
     if (response.statusCode == 200) {
       List<UserInfo> data = [];

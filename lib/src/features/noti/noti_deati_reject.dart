@@ -1,22 +1,31 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:settings_ui/settings_ui.dart';
 
-import '../../../constants/constant.dart';
-import '../models/confirm_model.dart';
+import '../../constants/constant.dart';
+import 'model/usertrainer.dart';
 
-final dio = Dio();
+class NotiDeatilReject extends StatefulWidget {
+  final UserTrainer dataReq;
+  const NotiDeatilReject({super.key, required this.dataReq});
 
-class Deatil extends StatelessWidget {
-  final ConfirmModel dataReq;
-  const Deatil({super.key, required this.dataReq});
+  @override
+  State<NotiDeatilReject> createState() => _NotiDeatilRejectState();
+}
 
-  sendNoti(BuildContext context) async {
-    final response = await dio.post('${host}/up-daily', data: {
-      "dailyNo": dataReq.dailyNo,
-      "status": "success",
+class _NotiDeatilRejectState extends State<NotiDeatilReject>
+    with SingleTickerProviderStateMixin {
+  final FlutterSecureStorage storageToken = new FlutterSecureStorage();
+  final dio = Dio();
+
+  action(String status, UserTrainer data) async {
+    final username = await storageToken.read(key: 'username');
+    final response = await dio.post('${host}/up-train', data: {
+      "usertrainer": username,
+      "status": status,
+      "user": data.username,
+      "id": data.id
     });
     if (response.statusCode == 200) {
       Navigator.of(context).pop();
@@ -40,19 +49,8 @@ class Deatil extends StatelessWidget {
             Navigator.of(context).pop();
           },
         ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.check_box_outlined,
-              size: 23,
-            ),
-            onPressed: () {
-              sendNoti(context);
-            },
-          ),
-        ],
       ),
-      body: Row(
+      body: Stack(
         children: [
           SettingsList(
             platform: DevicePlatform.iOS,
@@ -68,18 +66,18 @@ class Deatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'อาหาร',
+                      'น้ำหนัก',
                       style: TextStyle(
-                        fontFamily: 'prompt',
-                        fontSize: 12,
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.food}",
+                      "${widget.dataReq.weight}",
                       style: TextStyle(
-                          fontFamily: 'prompt',
-                          fontSize: 12,
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
                           fontWeight: FontWeight.w800,
                           color: Color.fromARGB(255, 10, 158, 126)),
                     ),
@@ -87,18 +85,18 @@ class Deatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'การออกกำลังกาย',
+                      'ส่วนสูง',
                       style: TextStyle(
-                        fontFamily: 'prompt',
-                        fontSize: 12,
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.exercise}",
+                      "${widget.dataReq.height}",
                       style: TextStyle(
-                          fontFamily: 'prompt',
-                          fontSize: 12,
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
                           fontWeight: FontWeight.w800,
                           color: Color.fromARGB(255, 10, 158, 126)),
                     ),
@@ -106,18 +104,18 @@ class Deatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'แคลอรี่ที่เผาผลาญ',
+                      'น้ำหนักที่ต้องการ',
                       style: TextStyle(
-                        fontFamily: 'prompt',
-                        fontSize: 12,
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.calories}",
+                      "${widget.dataReq.targetweight}",
                       style: TextStyle(
-                          fontFamily: 'prompt',
-                          fontSize: 12,
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
                           fontWeight: FontWeight.w800,
                           color: Color.fromARGB(255, 10, 158, 126)),
                     ),
@@ -125,26 +123,46 @@ class Deatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'การพักผ่อน',
+                      'เป้าหมายวันที่ต้องการ',
                       style: TextStyle(
-                        fontFamily: 'prompt',
-                        fontSize: 12,
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.sleep}",
+                      "${widget.dataReq.dateoftarget}",
                       style: TextStyle(
-                          fontFamily: 'prompt',
-                          fontSize: 12,
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
                           fontWeight: FontWeight.w800,
                           color: Color.fromARGB(255, 10, 158, 126)),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'ชื่อ',
+                      style: TextStyle(
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${widget.dataReq.firstname}",
+                      style: TextStyle(
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
+                          color: Color.fromARGB(255, 10, 158, 126),
+                          overflow: TextOverflow.fade),
                     ),
                   ),
                 ],
               ),
             ],
-          )
+          ),
         ],
       ),
     );

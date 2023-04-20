@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapphealthme/src/features/authentication/model/register.dart';
+import 'package:flutterapphealthme/src/features/noti/noti_new.dart';
 import 'package:flutterapphealthme/src/features/setting/setting.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import '../main/home.dart';
@@ -49,6 +50,14 @@ class _NavigationMenuBarState extends State<NavigationMenuBar> {
         contentPadding: 0.0,
         // icon: Icon(CupertinoIcons.clear_circled),
         icon: Icon(CupertinoIcons.bell, size: 23),
+        title: ("แจ้งเตือนใหม่"),
+        activeColorPrimary: Color.fromARGB(255, 250, 250, 250),
+        inactiveColorPrimary: Color.fromARGB(255, 3, 85, 78),
+      ),
+      PersistentBottomNavBarItem(
+        contentPadding: 0.0,
+        // icon: Icon(CupertinoIcons.clear_circled),
+        icon: Icon(CupertinoIcons.bell, size: 23),
         title: ("แจ้งเตือน"),
         activeColorPrimary: Color.fromARGB(255, 250, 250, 250),
         inactiveColorPrimary: Color.fromARGB(255, 3, 85, 78),
@@ -65,7 +74,7 @@ class _NavigationMenuBarState extends State<NavigationMenuBar> {
 
   List<Widget> _buildScreens() {
     return [
-       Noti(), Setting()
+      NotiNew(), Noti(), Setting()
       // MainList(),
       // Test()
     ];

@@ -6,15 +6,15 @@ import 'package:settings_ui/settings_ui.dart';
 import '../../constants/constant.dart';
 import 'model/usertrainer.dart';
 
-class NotiDeatil extends StatefulWidget {
+class NotiDeatilApprove extends StatefulWidget {
   final UserTrainer dataReq;
-  const NotiDeatil({super.key, required this.dataReq});
+  const NotiDeatilApprove({super.key, required this.dataReq});
 
   @override
-  State<NotiDeatil> createState() => _NotiDeatilState();
+  State<NotiDeatilApprove> createState() => _NotiDeatilApproveState();
 }
 
-class _NotiDeatilState extends State<NotiDeatil>
+class _NotiDeatilApproveState extends State<NotiDeatilApprove>
     with SingleTickerProviderStateMixin {
   final FlutterSecureStorage storageToken = new FlutterSecureStorage();
   final dio = Dio();
@@ -164,7 +164,7 @@ class _NotiDeatilState extends State<NotiDeatil>
               SettingsSection(
                 margin: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 0),
                 title: Text(
-                  'ยืนยัน หรือ ปฏเสธ',
+                  '',
                   style: TextStyle(
                     fontFamily: 'rsubold',
                     fontSize: 15,
@@ -172,11 +172,11 @@ class _NotiDeatilState extends State<NotiDeatil>
                 ),
                 tiles: <SettingsTile>[
                   SettingsTile.navigation(
-                    onPressed: (context) => {action("approve", widget.dataReq)},
-                    leading: Icon(Icons.check_circle_outline,
+                    onPressed: (context) => {},
+                    leading: Icon(Icons.add,
                         color: Color.fromARGB(255, 66, 123, 43)),
                     title: Text(
-                      'ยืนยัน',
+                      'สร้างไดอารี',
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontWeight: FontWeight.w900,
@@ -189,19 +189,20 @@ class _NotiDeatilState extends State<NotiDeatil>
                     ),
                   ),
                   SettingsTile.navigation(
-                    onPressed: (context) => {action("reject", widget.dataReq)},
-                    leading: Icon(Icons.close, color: Colors.red),
+                    onPressed: (context) => {},
+                    leading: Icon(Icons.info_outline,
+                        color: Color.fromARGB(255, 66, 123, 43)),
                     title: Text(
-                      'ปฎิเสธ',
+                      'รายละเอียดไดอารี',
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontWeight: FontWeight.w900,
                           fontSize: 16,
-                          color: Colors.red),
+                          color: Color.fromARGB(255, 66, 123, 43)),
                     ),
                     trailing: Text(
                       '',
-                      style: TextStyle(fontFamily: 'prompt', fontSize: 14),
+                      style: TextStyle(fontFamily: 'rsubold', fontSize: 14),
                     ),
                   ),
                 ],

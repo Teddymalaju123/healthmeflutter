@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../main.dart';
+import '../../../constants/constant.dart';
 import '../fitness_app_theme.dart';
 import '../models/meals_list_data.dart';
 import '../models/modulefood.dart';
@@ -28,7 +29,7 @@ class _MealsListViewState extends State<MealsListView>
   final dio = Dio();
   // List<Modulefood> dataList = [];
   // getDataApi() async {
-  //   final response = await dio.get('http://192.168.1.100:5000/login');
+  //   final response = await dio.get('${host}/login');
   //   if (response.statusCode == 200) {
   //     List<Modulefood> data = [];
   //     response.data.forEach((element) {
@@ -76,7 +77,7 @@ class _MealsListViewState extends State<MealsListView>
       "assets/fitness_app/dinner.png",
       "assets/fitness_app/snack.png"
     ];
-    final response = await dio.get('http://192.168.1.100:5000/get-food');
+    final response = await dio.get('${host}/get-food');
     if (response.statusCode == 200) {
       List<Modulefood> data = [];
       response.data.forEach((element) {

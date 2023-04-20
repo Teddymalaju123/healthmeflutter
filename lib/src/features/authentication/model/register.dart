@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutterapphealthme/src/features/authentication/model/user_info.dart';
 
+import '../../../constants/constant.dart';
 import '../../../widget/CustomRadio.dart';
 import '../../routing/navigator.dart';
 
@@ -43,8 +44,7 @@ class _registerState extends State<register> {
     print(username.text);
     print(password.text);
 
-    final response =
-        await dio.post('http://192.168.1.100:5000/register', data: {
+    final response = await dio.post('${host}/register', data: {
       "username": username.text,
       "password": password.text,
       "email": email.text,
@@ -55,7 +55,8 @@ class _registerState extends State<register> {
       "dateofbirth": dateofbirth.text,
       "weight": weight.text,
       "height": height.text,
-      "goaloption": goaltype == 0 ? "Build muscle"  "Loss weight" : "Stay healthy",
+      "goaloption":
+          goaltype == 0 ? "Build muscle" "Loss weight" : "Stay healthy",
       "targetweight": targetweight.text,
       "dateoftarget": dateoftarget.text,
       "wayoption": waytype == 0 ? "IF" : "Calories",
@@ -488,8 +489,6 @@ class _registerState extends State<register> {
     );
   }
 
- 
-
   Widget _entryFieldTargetwieght(String title) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
@@ -561,8 +560,6 @@ class _registerState extends State<register> {
       ),
     );
   }
-
- 
 
   Widget _submitButton() {
     return InkWell(

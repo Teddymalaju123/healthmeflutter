@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutterapphealthme/src/features/main/home.dart';
 
+import '../../../../constants/constant.dart';
 import '../../../../widget/CustomRadio.dart';
 import '../usertrainer.dart';
 
@@ -28,7 +29,7 @@ class _createlisthealthState extends State<createlisthealth> {
   getData() async {
     userData.clear();
     final username = await storageToken.read(key: 'username');
-    final response = await dio.post('http://192.168.1.100:5000/train', data: {
+    final response = await dio.post('${host}/train', data: {
       "usertrainer": username,
     });
     if (response.statusCode == 200) {
@@ -53,15 +54,15 @@ class _createlisthealthState extends State<createlisthealth> {
     print(exercise.text);
     print(calories.text);
     print(sleep.text);
-    final response = await dio.post('http://192.168.1.100:5000/createdaily', data: {
-  "food": food.text,
+    final response = await dio.post('${host}/createdaily', data: {
+      "food": food.text,
       "exercise": exercise.text,
       "calories": calories.text,
       "sleep": sleep.text,
       "Idtrainer": widget.dataReq.id,
       "status": "waiting"
     });
-    
+
     if (response.statusCode == 200) {
       Navigator.of(context).pop();
     }

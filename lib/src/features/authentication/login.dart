@@ -6,6 +6,7 @@ import 'package:flutterapphealthme/src/features/authentication/model/register.da
 import 'package:flutterapphealthme/src/features/authentication/model/user_info.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import '../../constants/constant.dart';
 import '../health_app/fitness_app_home_screen.dart';
 import '../routing/navigator.dart';
 
@@ -24,34 +25,78 @@ class _LoginState extends State<Login> {
   List<UserInfo> userData = [];
 
   login() async {
-    final response = await dio.post('http://192.168.1.100:5000/login', data: {
-      "username": username.text,
-      "password": password.text,
-    });
-    if (response.statusCode == 200) {
-      List<UserInfo> data = [];
-      response.data.forEach((element) {
-        data.add(UserInfo.fromJson(element));
+    try {
+      final response = await dio.post('${host}/login', data: {
+        "username": username.text,
+        "password": password.text,
       });
-      setState(() {
-        userData = data;
-      });
-      await storageToken.write(
-        key: 'username',
-        value: userData[0].username,
-      );
-      if (userData != null && userData.isNotEmpty) {
-        if (userData[0].usertype == "USER") {
-          goToMainUser();
+      if (response.statusCode == 200) {
+        List<UserInfo> data = [];
+        response.data.forEach((element) {
+          data.add(UserInfo.fromJson(element));
+        });
+        setState(() {
+          userData = data;
+        });
+        await storageToken.write(
+          key: 'username',
+          value: userData[0].username,
+        );
+        if (userData != null && userData.isNotEmpty) {
+          if (userData[0].usertype == "USER") {
+            goToMainUser();
+          } else {
+            goToMain();
+          }
         } else {
-          goToMain();
+          noti(context);
         }
-      } else {
-        noti(context);
       }
+    } catch (e) {
+      noti(context);
     }
+  }
 
-    print(response);
+  void notiError(BuildContext context) {
+    showCupertinoDialog(
+        context: context,
+        builder: (BuildContext ctx) {
+          return CupertinoAlertDialog(
+            title: Text(
+              'แจ้งเตือนเข้าสู่ระบบ',
+              style: TextStyle(
+                  color: Color.fromARGB(255, 65, 57, 52),
+                  fontFamily: 'arthit',
+                  fontSize: 21),
+            ),
+            content: Text(
+              "เกิดข้อผิดพลาดทางระบบ",
+              style: TextStyle(
+                  color: Color.fromARGB(255, 55, 48, 43),
+                  fontFamily: 'arthit',
+                  fontSize: 17),
+            ),
+            actions: [
+              // The "Yes" button
+              CupertinoDialogAction(
+                onPressed: () {
+                  setState(() {
+                    Navigator.of(context).pop();
+                  });
+                },
+                child: const Text(
+                  'ตกลง',
+                  style: TextStyle(
+                    color: Color(0xff536830),
+                  ),
+                ),
+                isDefaultAction: true,
+                isDestructiveAction: true,
+              ),
+              // The "No" button
+            ],
+          );
+        });
   }
 
   void noti(BuildContext context) {

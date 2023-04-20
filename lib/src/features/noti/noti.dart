@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import '../../constants/constant.dart';
 import '../../widget/button_action.dart';
 import 'model/trainerdiary/createlisthealth.dart';
 import 'model/usertrainer.dart';
@@ -67,7 +68,7 @@ class _NotiState extends State<Noti> {
   getData() async {
     userData.clear();
     final username = await storageToken.read(key: 'username');
-    final response = await dio.post('http://192.168.1.100:5000/train', data: {
+    final response = await dio.post('${host}/train-approve', data: {
       "usertrainer": username,
     });
     if (response.statusCode == 200) {
@@ -89,13 +90,12 @@ class _NotiState extends State<Noti> {
 
   action(String status, UserTrainer data) async {
     final username = await storageToken.read(key: 'username');
-    final response = await dio.post('http://192.168.1.100:5000/up-train',
-        data: {
-          "usertrainer": username,
-          "status": status,
-          "user": data.username,
-          "id": data.id
-        });
+    final response = await dio.post('${host}/up-train', data: {
+      "usertrainer": username,
+      "status": status,
+      "user": data.username,
+      "id": data.id
+    });
     if (response.statusCode == 200) {
       getData();
     }
