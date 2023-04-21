@@ -1,9 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:flutterapphealthme/src/features/noti/createlisthealth.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 import '../../constants/constant.dart';
+import 'detail_diary.dart';
 import 'model/usertrainer.dart';
 
 class NotiDeatilApprove extends StatefulWidget {
@@ -37,8 +40,8 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 10, 158, 126),
-        title: const Text('รายละเอียด'),
+        backgroundColor: textColor,
+        title: Text('รายละเอียด'),
         centerTitle: true,
         leading: IconButton(
           icon: Icon(
@@ -79,7 +82,7 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
+                          color: textColor),
                     ),
                   ),
                   SettingsTile.navigation(
@@ -98,7 +101,7 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
+                          color: textColor),
                     ),
                   ),
                   SettingsTile.navigation(
@@ -117,7 +120,7 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
+                          color: textColor),
                     ),
                   ),
                   SettingsTile.navigation(
@@ -136,7 +139,7 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
+                          color: textColor),
                     ),
                   ),
                   SettingsTile.navigation(
@@ -155,7 +158,7 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126),
+                          color: textColor,
                           overflow: TextOverflow.fade),
                     ),
                   ),
@@ -172,16 +175,23 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
                 ),
                 tiles: <SettingsTile>[
                   SettingsTile.navigation(
-                    onPressed: (context) => {},
-                    leading: Icon(Icons.add,
-                        color: Color.fromARGB(255, 66, 123, 43)),
+                    onPressed: (context) => {
+                      PersistentNavBarNavigator.pushNewScreen(
+                        context,
+                        screen: createlisthealth(dataReq: widget.dataReq),
+                        withNavBar: false,
+                        pageTransitionAnimation:
+                            PageTransitionAnimation.cupertino,
+                      ).then((value) => {})
+                    },
+                    leading: Icon(Icons.add, color: textColor),
                     title: Text(
                       'สร้างไดอารี',
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontWeight: FontWeight.w900,
                           fontSize: 16,
-                          color: Color.fromARGB(255, 66, 123, 43)),
+                          color: textColor),
                     ),
                     trailing: Text(
                       '',
@@ -189,16 +199,23 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
                     ),
                   ),
                   SettingsTile.navigation(
-                    onPressed: (context) => {},
-                    leading: Icon(Icons.info_outline,
-                        color: Color.fromARGB(255, 66, 123, 43)),
+                    onPressed: (context) => {
+                      PersistentNavBarNavigator.pushNewScreen(
+                        context,
+                        screen: DetailDiary(dataReq: widget.dataReq),
+                        withNavBar: false,
+                        pageTransitionAnimation:
+                            PageTransitionAnimation.cupertino,
+                      ).then((value) => {})
+                    },
+                    leading: Icon(Icons.info_outline, color: textColor),
                     title: Text(
                       'รายละเอียดไดอารี',
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontWeight: FontWeight.w900,
                           fontSize: 16,
-                          color: Color.fromARGB(255, 66, 123, 43)),
+                          color: textColor),
                     ),
                     trailing: Text(
                       '',

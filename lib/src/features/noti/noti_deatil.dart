@@ -37,7 +37,7 @@ class _NotiDeatilState extends State<NotiDeatil>
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 10, 158, 126),
+        backgroundColor: textColor,
         title: const Text('รายละเอียด'),
         centerTitle: true,
         leading: IconButton(
@@ -79,7 +79,7 @@ class _NotiDeatilState extends State<NotiDeatil>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
+                          color: textColor),
                     ),
                   ),
                   SettingsTile.navigation(
@@ -98,7 +98,7 @@ class _NotiDeatilState extends State<NotiDeatil>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
+                          color: textColor),
                     ),
                   ),
                   SettingsTile.navigation(
@@ -117,7 +117,7 @@ class _NotiDeatilState extends State<NotiDeatil>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
+                          color: textColor),
                     ),
                   ),
                   SettingsTile.navigation(
@@ -136,7 +136,7 @@ class _NotiDeatilState extends State<NotiDeatil>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
+                          color: textColor),
                     ),
                   ),
                   SettingsTile.navigation(
@@ -155,7 +155,7 @@ class _NotiDeatilState extends State<NotiDeatil>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126),
+                          color: textColor,
                           overflow: TextOverflow.fade),
                     ),
                   ),
@@ -173,15 +173,14 @@ class _NotiDeatilState extends State<NotiDeatil>
                 tiles: <SettingsTile>[
                   SettingsTile.navigation(
                     onPressed: (context) => {action("approve", widget.dataReq)},
-                    leading: Icon(Icons.check_circle_outline,
-                        color: Color.fromARGB(255, 66, 123, 43)),
+                    leading: Icon(Icons.check_circle_outline, color: textColor),
                     title: Text(
                       'ยืนยัน',
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontWeight: FontWeight.w900,
                           fontSize: 16,
-                          color: Color.fromARGB(255, 66, 123, 43)),
+                          color: textColor),
                     ),
                     trailing: Text(
                       '',

@@ -138,12 +138,10 @@ class _registerState extends State<register> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           TextField(
               controller: username,
@@ -174,12 +172,10 @@ class _registerState extends State<register> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           TextField(
               controller: password,
@@ -210,12 +206,10 @@ class _registerState extends State<register> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           TextField(
               controller: email,
@@ -246,12 +240,10 @@ class _registerState extends State<register> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           TextField(
               controller: firstname,
@@ -282,12 +274,10 @@ class _registerState extends State<register> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           TextField(
               controller: lastname,
@@ -318,12 +308,10 @@ class _registerState extends State<register> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           TextField(
               controller: phonenumber,
@@ -355,11 +343,11 @@ class _registerState extends State<register> {
   //           title,
   //           style: TextStyle(
   //               fontFamily: 'rsubold',
-  //               fontSize: 15,
-  //               color: Color.fromARGB(255, 22, 155, 111)),
+  //               fontSize: 17,
+  //               color: textColor),
   //         ),
   //         SizedBox(
-  //           height: 10,
+  //            height: 2,
   //         ),
   //         TextField(
   //             controller: gender,
@@ -390,12 +378,10 @@ class _registerState extends State<register> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           TextField(
               controller: dateofbirth,
@@ -426,12 +412,10 @@ class _registerState extends State<register> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           TextField(
               controller: weight,
@@ -462,12 +446,10 @@ class _registerState extends State<register> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           TextField(
               controller: height,
@@ -498,12 +480,10 @@ class _registerState extends State<register> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           TextField(
               controller: targetweight,
@@ -534,12 +514,10 @@ class _registerState extends State<register> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           TextField(
               controller: dateoftarget,
@@ -582,9 +560,9 @@ class _registerState extends State<register> {
             gradient: LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
-                colors: [Color(0xff6E8786), Color(0xff6E8786)])),
+                colors: [textColor, textColor])),
         child: Text(
-          'ลงชื่อเข้าใช้งานระบบ',
+          'สมัครสมาชิก',
           style: TextStyle(
             fontSize: 20,
             color: Colors.white,
@@ -602,15 +580,16 @@ class _registerState extends State<register> {
         text: 'ลงชื่อเข้าใช้ระบบ',
         style: TextStyle(
             fontFamily: 'rsubold',
-            fontSize: 30,
+            fontSize: 33,
             fontWeight: FontWeight.w700,
-            color: Color.fromARGB(255, 15, 136, 100)),
+            color: textColor),
       ),
     );
   }
 
   Widget _emailPasswordWidget() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         _entryFieldUsername("ผู้ใช้งาน"),
         _entryFieldPassword("รหัสผ่าน", isPassword: true),
@@ -619,13 +598,11 @@ class _registerState extends State<register> {
         _entryFieldLastname("นามสกุล"),
         _entryFieldPhonenumber("เบอร์โทรศัพท์"),
         Padding(
-          padding: const EdgeInsets.only(bottom: 10),
+          padding: const EdgeInsets.only(bottom: 0),
           child: Text(
             "เลือกเพศ",
             style: TextStyle(
-                fontFamily: 'donut',
-                fontSize: 20,
-                color: Color.fromARGB(255, 255, 255, 255)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
         ),
         CustomRadio(
@@ -639,7 +616,7 @@ class _registerState extends State<register> {
           },
         ),
         SizedBox(
-          height: 10,
+          height: 2,
         ),
         CustomRadio(
           name: 'หญิง',
@@ -655,11 +632,10 @@ class _registerState extends State<register> {
         _entryFieldWeight("น้ำหนัก"),
         _entryFieldHeight("ส่วนสูง"),
         Padding(
-          padding: const EdgeInsets.only(bottom: 10),
+          padding: const EdgeInsets.only(top: 10),
           child: Text(
             "สิ่งที่ต้องการ",
-            style: TextStyle(
-                fontSize: 20, color: Color.fromARGB(255, 255, 255, 255)),
+            style: TextStyle(fontSize: 17, color: textColor),
           ),
         ),
         CustomRadio(
@@ -673,7 +649,7 @@ class _registerState extends State<register> {
           },
         ),
         SizedBox(
-          height: 10,
+          height: 2,
         ),
         CustomRadio(
           name: 'Loss muscle',
@@ -686,7 +662,7 @@ class _registerState extends State<register> {
           },
         ),
         SizedBox(
-          height: 10,
+          height: 2,
         ),
         CustomRadio(
           name: 'Stay healthy',
@@ -698,14 +674,17 @@ class _registerState extends State<register> {
             });
           },
         ),
+        SizedBox(
+          height: 10,
+        ),
         _entryFieldTargetwieght("เป้าหมายน้ำหนักที่ต้องการ"),
         _entryFieldDateoftarget("วันที่เป้าหมาย"),
         Padding(
-          padding: const EdgeInsets.only(bottom: 10),
+          padding: const EdgeInsets.only(top: 10),
           child: Text(
             "วิธีการที่ต้องการ",
-            style: TextStyle(
-                fontSize: 20, color: Color.fromARGB(255, 255, 255, 255)),
+            textAlign: TextAlign.start,
+            style: TextStyle(fontSize: 17, color: textColor),
           ),
         ),
         CustomRadio(
@@ -719,7 +698,7 @@ class _registerState extends State<register> {
           },
         ),
         SizedBox(
-          height: 10,
+          height: 2,
         ),
         CustomRadio(
           name: 'Calories',
@@ -732,13 +711,11 @@ class _registerState extends State<register> {
           },
         ),
         Padding(
-          padding: const EdgeInsets.only(bottom: 10),
+          padding: const EdgeInsets.only(top: 10),
           child: Text(
             "ประเภทผู้เข้าใช้งาน",
             style: TextStyle(
-                fontFamily: 'donut',
-                fontSize: 20,
-                color: Color.fromARGB(255, 255, 255, 255)),
+                fontFamily: 'rsubold', fontSize: 20, color: textColor),
           ),
         ),
         CustomRadio(
@@ -752,7 +729,7 @@ class _registerState extends State<register> {
           },
         ),
         SizedBox(
-          height: 10,
+          height: 2,
         ),
         CustomRadio(
           name: 'เทรนเนอร์',
@@ -774,9 +751,15 @@ class _registerState extends State<register> {
     return Container(
       constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/3221598.jpg"),
-              fit: BoxFit.cover)),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color.fromARGB(255, 104, 150, 194),
+            Color.fromARGB(255, 221, 234, 240),
+          ],
+        ),
+      ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
@@ -792,6 +775,7 @@ class _registerState extends State<register> {
                 _emailPasswordWidget(),
                 SizedBox(height: 30),
                 _submitButton(),
+                SizedBox(height: 30),
               ],
             ),
           ),

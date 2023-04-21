@@ -8,7 +8,7 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../constants/constant.dart';
 import '../../widget/button_action.dart';
-import 'model/trainerdiary/createlisthealth.dart';
+import 'createlisthealth.dart';
 import 'model/usertrainer.dart';
 import 'noti_deati_approve.dart';
 import 'noti_deati_reject.dart';
@@ -105,7 +105,7 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Color.fromARGB(255, 10, 158, 126),
+            backgroundColor: textColor,
             bottom: TabBar(
               onTap: (value) => {
                 if (value == 0)
@@ -191,7 +191,7 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                           padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 0),
                           child: Container(
                             width: double.infinity,
-                            height: 100,
+                            height: 110,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               boxShadow: [
@@ -201,7 +201,7 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                                   offset: Offset(0, 1),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(9),
                             ),
                             child: Padding(
                               padding:
@@ -214,7 +214,7 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                                     tag: 'ControllerImage',
                                     transitionOnUserGestures: true,
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
+                                      borderRadius: BorderRadius.circular(9),
                                       child: Image.network(
                                         "https://www.pngplay.com/wp-content/uploads/6/Fitness-Exercise-PNG-HD-Quality.png",
                                         fit: BoxFit.fitWidth,
@@ -236,16 +236,19 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 0, 0, 8),
                                           child: Text(
+                                              style: TextStyle(fontSize: 16),
                                               'ชื่อ : ${userDataWaiting[index].firstname}'),
                                         ),
                                         Text(
                                           'สถานะ : ${checkStatus(userDataWaiting[index].status!)}',
+                                          style: TextStyle(fontSize: 16),
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 8, 0, 0),
                                           child: Text(
+                                            style: TextStyle(fontSize: 16),
                                             'เบอร์โทรศัพท์ : ${userDataWaiting[index].phonenumber!}',
                                           ),
                                         ),
@@ -294,7 +297,7 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                           padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 0),
                           child: Container(
                             width: double.infinity,
-                            height: 100,
+                            height: 110,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               boxShadow: [
@@ -304,7 +307,7 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                                   offset: Offset(0, 1),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(9),
                             ),
                             child: Padding(
                               padding:
@@ -317,7 +320,7 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                                     tag: 'ControllerImage',
                                     transitionOnUserGestures: true,
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
+                                      borderRadius: BorderRadius.circular(9),
                                       child: Image.network(
                                         "https://www.pngplay.com/wp-content/uploads/6/Fitness-Exercise-PNG-HD-Quality.png",
                                         fit: BoxFit.fitWidth,
@@ -339,16 +342,20 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 0, 0, 8),
                                           child: Text(
-                                              'ชื่อ : ${userDataApprive[index].firstname}'),
+                                            'ชื่อ : ${userDataApprive[index].firstname}',
+                                            style: TextStyle(fontSize: 16),
+                                          ),
                                         ),
                                         Text(
                                           'สถานะ : ${checkStatus(userDataApprive[index].status!)}',
+                                          style: TextStyle(fontSize: 16),
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 8, 0, 0),
                                           child: Text(
+                                            style: TextStyle(fontSize: 16),
                                             'เบอร์โทรศัพท์ : ${userDataApprive[index].phonenumber!}',
                                           ),
                                         ),
@@ -397,7 +404,7 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                           padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 0),
                           child: Container(
                             width: double.infinity,
-                            height: 100,
+                            height: 110,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               boxShadow: [
@@ -407,7 +414,7 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                                   offset: Offset(0, 1),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(9),
                             ),
                             child: Padding(
                               padding:
@@ -420,7 +427,7 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                                     tag: 'ControllerImage',
                                     transitionOnUserGestures: true,
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
+                                      borderRadius: BorderRadius.circular(9),
                                       child: Image.network(
                                         "https://www.pngplay.com/wp-content/uploads/6/Fitness-Exercise-PNG-HD-Quality.png",
                                         fit: BoxFit.fitWidth,
@@ -442,9 +449,11 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 0, 0, 8),
                                           child: Text(
+                                              style: TextStyle(fontSize: 16),
                                               'ชื่อ : ${userDataReject[index].firstname}'),
                                         ),
                                         Text(
+                                          style: TextStyle(fontSize: 16),
                                           'สถานะ : ${checkStatus(userDataReject[index].status!)}',
                                         ),
                                         Padding(
@@ -452,6 +461,7 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 8, 0, 0),
                                           child: Text(
+                                            style: TextStyle(fontSize: 16),
                                             'เบอร์โทรศัพท์ : ${userDataReject[index].phonenumber!}',
                                           ),
                                         ),

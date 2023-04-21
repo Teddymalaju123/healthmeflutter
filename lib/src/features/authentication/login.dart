@@ -174,12 +174,10 @@ class _LoginState extends State<Login> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           TextField(
               controller: username,
@@ -188,7 +186,7 @@ class _LoginState extends State<Login> {
                   border: InputBorder.none,
                   fillColor: Colors.white,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderSide: BorderSide(color: textColor),
                     borderRadius: BorderRadius.all(Radius.circular(6)),
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -210,12 +208,10 @@ class _LoginState extends State<Login> {
           Text(
             title,
             style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontWeight: FontWeight.bold, fontSize: 17, color: textColor),
           ),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           TextField(
               controller: password,
@@ -225,7 +221,7 @@ class _LoginState extends State<Login> {
                   border: InputBorder.none,
                   fillColor: Colors.white,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderSide: BorderSide(color: textColor),
                     borderRadius: BorderRadius.all(Radius.circular(6)),
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -259,7 +255,7 @@ class _LoginState extends State<Login> {
             gradient: LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
-                colors: [Color(0xff6E8786), Color(0xff6E8786)])),
+                colors: [textColor, textColor])),
         child: Text(
           'ลงชื่อเข้าใช้งานระบบ',
           style: TextStyle(
@@ -302,7 +298,7 @@ class _LoginState extends State<Login> {
             gradient: LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
-                colors: [Color(0xff6E8786), Color(0xff6E8786)])),
+                colors: [textColor, textColor])),
         child: Text(
           'สมัครสมาชิก',
           style: TextStyle(
@@ -322,9 +318,9 @@ class _LoginState extends State<Login> {
         text: 'ลงชื่อเข้าใช้ระบบ',
         style: TextStyle(
             fontFamily: 'rsubold',
-            fontSize: 30,
+            fontSize: 33,
             fontWeight: FontWeight.w700,
-            color: Color.fromARGB(255, 15, 136, 100)),
+            color: textColor),
       ),
     );
   }
@@ -344,9 +340,15 @@ class _LoginState extends State<Login> {
     return Container(
       constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/3221598.jpg"),
-              fit: BoxFit.cover)),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color.fromARGB(255, 104, 150, 194),
+            Color.fromARGB(255, 255, 255, 255),
+          ],
+        ),
+      ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(

@@ -37,7 +37,7 @@ class _NotiDeatilRejectState extends State<NotiDeatilReject>
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 10, 158, 126),
+        backgroundColor: textColor,
         title: const Text('รายละเอียด'),
         centerTitle: true,
         leading: IconButton(

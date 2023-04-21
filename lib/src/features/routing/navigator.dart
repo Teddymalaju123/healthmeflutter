@@ -4,6 +4,7 @@ import 'package:flutterapphealthme/src/features/authentication/model/register.da
 import 'package:flutterapphealthme/src/features/noti/noti_new.dart';
 import 'package:flutterapphealthme/src/features/setting/setting.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import '../../constants/constant.dart';
 import '../main/home.dart';
 import '../noti/noti.dart';
 
@@ -22,59 +23,30 @@ class _NavigationMenuBarState extends State<NavigationMenuBar> {
   @override
   void initState() {
     super.initState();
-
-    // Map the selected page string to its corresponding index
-    final pageMap = {'home': 0, 'list': 1, 'setting': 2};
-    final selectedPageIndex = pageMap[widget.selectPage] ?? 0;
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
-      // PersistentBottomNavBarItem(
-      //   contentPadding: 0.0,
-      //   inactiveColorSecondary: CupertinoColors.black,
-      //   icon: Icon(CupertinoIcons.house, size: 23),
-      //   title: ("หน้าหลัก"),
-      //   iconSize: 50,
-      //   activeColorPrimary: Color.fromARGB(255, 250, 250, 250),
-      //   inactiveColorPrimary: Color.fromARGB(255, 10, 83, 77),
-      // ),
-      // PersistentBottomNavBarItem(
-      //   contentPadding: 0.0,
-      //   icon: Icon(CupertinoIcons.square_list_fill, size: 23),
-      //   title: ("รายชื่อผู้ใช้"),
-      //   activeColorPrimary: Color.fromARGB(255, 250, 250, 250),
-      //   inactiveColorPrimary: Color.fromARGB(255, 10, 83, 77),
-      // ),
       PersistentBottomNavBarItem(
-        contentPadding: 0.0,
-        // icon: Icon(CupertinoIcons.clear_circled),
-        icon: Icon(CupertinoIcons.bell, size: 23),
-        title: ("แจ้งเตือนใหม่"),
-        activeColorPrimary: Color.fromARGB(255, 250, 250, 250),
-        inactiveColorPrimary: Color.fromARGB(255, 3, 85, 78),
+        // contentPadding: 0.0,
+        icon: Container(child: Icon(CupertinoIcons.bell, size: 23)),
+        title: "แจ้งเตือน",
+        activeColorPrimary: textColor,
+        inactiveColorPrimary: Color.fromARGB(255, 106, 109, 108),
       ),
       PersistentBottomNavBarItem(
         contentPadding: 0.0,
-        // icon: Icon(CupertinoIcons.clear_circled),
-        icon: Icon(CupertinoIcons.bell, size: 23),
-        title: ("แจ้งเตือน"),
-        activeColorPrimary: Color.fromARGB(255, 250, 250, 250),
-        inactiveColorPrimary: Color.fromARGB(255, 3, 85, 78),
-      ),
-      PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.person_crop_circle, size: 23),
-        contentPadding: 0.0,
+        icon: Icon(CupertinoIcons.person_crop_circle),
         title: ("โปรไฟล์"),
-        activeColorPrimary: Color.fromARGB(255, 250, 250, 250),
-        inactiveColorPrimary: Color.fromARGB(255, 10, 83, 77),
+        activeColorPrimary: textColor,
+        inactiveColorPrimary: Color.fromARGB(255, 106, 109, 108),
       ),
     ];
   }
 
   List<Widget> _buildScreens() {
     return [
-      NotiNew(), Noti(), Setting()
+      NotiNew(), Setting()
       // MainList(),
       // Test()
     ];
@@ -102,14 +74,11 @@ class _NavigationMenuBarState extends State<NavigationMenuBar> {
               offset: Offset(0, 3), // changes position of shadow
             ),
           ],
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(1),
           gradient: LinearGradient(
             begin: Alignment.centerLeft,
             end: Alignment.bottomRight,
-            colors: [
-              Color.fromARGB(255, 98, 161, 148),
-              Color.fromARGB(255, 10, 158, 126)
-            ],
+            colors: [Colors.white, Colors.white],
           )),
 
       popAllScreensOnTapOfSelectedTab: true,
@@ -124,7 +93,7 @@ class _NavigationMenuBarState extends State<NavigationMenuBar> {
         duration: Duration(milliseconds: 250),
       ),
       navBarStyle:
-          NavBarStyle.style3, // Choose the nav bar style with this property.
+          NavBarStyle.style6, // Choose the nav bar style with this property.
     );
   }
 }

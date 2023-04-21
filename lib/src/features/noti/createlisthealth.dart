@@ -6,9 +6,9 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutterapphealthme/src/features/main/home.dart';
 
-import '../../../../constants/constant.dart';
-import '../../../../widget/CustomRadio.dart';
-import '../usertrainer.dart';
+import '../../constants/constant.dart';
+import '../../widget/CustomRadio.dart';
+import 'model/usertrainer.dart';
 
 class createlisthealth extends StatefulWidget {
   final UserTrainer dataReq;
@@ -54,10 +54,6 @@ class _createlisthealthState extends State<createlisthealth> {
   }
 
   save() async {
-    print(food.text);
-    print(exercise.text);
-    print(calories.text);
-    print(sleep.text);
     final response = await dio.post('${host}/createdaily', data: {
       "day": day.text,
       "food": food.text,
@@ -85,13 +81,9 @@ class _createlisthealthState extends State<createlisthealth> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 2),
           TextField(
               controller: day,
               decoration: InputDecoration(
@@ -99,7 +91,7 @@ class _createlisthealthState extends State<createlisthealth> {
                   border: InputBorder.none,
                   fillColor: Colors.white,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderSide: BorderSide(color: textColor),
                     borderRadius: BorderRadius.all(Radius.circular(6)),
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -121,13 +113,9 @@ class _createlisthealthState extends State<createlisthealth> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 2),
           TextField(
               controller: food,
               decoration: InputDecoration(
@@ -135,7 +123,7 @@ class _createlisthealthState extends State<createlisthealth> {
                   border: InputBorder.none,
                   fillColor: Colors.white,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderSide: BorderSide(color: textColor),
                     borderRadius: BorderRadius.all(Radius.circular(6)),
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -157,13 +145,9 @@ class _createlisthealthState extends State<createlisthealth> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 2),
           TextField(
               controller: lunch,
               decoration: InputDecoration(
@@ -171,7 +155,7 @@ class _createlisthealthState extends State<createlisthealth> {
                   border: InputBorder.none,
                   fillColor: Colors.white,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderSide: BorderSide(color: textColor),
                     borderRadius: BorderRadius.all(Radius.circular(6)),
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -193,13 +177,9 @@ class _createlisthealthState extends State<createlisthealth> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 2),
           TextField(
               controller: dinner,
               decoration: InputDecoration(
@@ -207,7 +187,7 @@ class _createlisthealthState extends State<createlisthealth> {
                   border: InputBorder.none,
                   fillColor: Colors.white,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderSide: BorderSide(color: textColor),
                     borderRadius: BorderRadius.all(Radius.circular(6)),
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -229,13 +209,9 @@ class _createlisthealthState extends State<createlisthealth> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 2),
           TextField(
               controller: exercise,
               decoration: InputDecoration(
@@ -243,7 +219,7 @@ class _createlisthealthState extends State<createlisthealth> {
                   border: InputBorder.none,
                   fillColor: Colors.white,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderSide: BorderSide(color: textColor),
                     borderRadius: BorderRadius.all(Radius.circular(6)),
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -265,13 +241,9 @@ class _createlisthealthState extends State<createlisthealth> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 2),
           TextField(
               controller: descripex,
               decoration: InputDecoration(
@@ -279,7 +251,7 @@ class _createlisthealthState extends State<createlisthealth> {
                   border: InputBorder.none,
                   fillColor: Colors.white,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderSide: BorderSide(color: textColor),
                     borderRadius: BorderRadius.all(Radius.circular(6)),
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -301,13 +273,9 @@ class _createlisthealthState extends State<createlisthealth> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 2),
           TextField(
               controller: calories,
               decoration: InputDecoration(
@@ -315,7 +283,7 @@ class _createlisthealthState extends State<createlisthealth> {
                   border: InputBorder.none,
                   fillColor: Colors.white,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderSide: BorderSide(color: textColor),
                     borderRadius: BorderRadius.all(Radius.circular(6)),
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -337,13 +305,9 @@ class _createlisthealthState extends State<createlisthealth> {
           Text(
             title,
             style: TextStyle(
-                fontFamily: 'rsubold',
-                fontSize: 15,
-                color: Color.fromARGB(255, 22, 155, 111)),
+                fontFamily: 'rsubold', fontSize: 17, color: textColor),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 2),
           TextField(
               controller: sleep,
               decoration: InputDecoration(
@@ -351,7 +315,7 @@ class _createlisthealthState extends State<createlisthealth> {
                   border: InputBorder.none,
                   fillColor: Colors.white,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderSide: BorderSide(color: textColor),
                     borderRadius: BorderRadius.all(Radius.circular(6)),
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -360,6 +324,40 @@ class _createlisthealthState extends State<createlisthealth> {
                   ),
                   filled: true))
         ],
+      ),
+    );
+  }
+
+  Widget _submitBack() {
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).pop();
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.symmetric(vertical: 6),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                  color: Colors.grey.shade200,
+                  offset: Offset(2, 4),
+                  blurRadius: 5,
+                  spreadRadius: 2)
+            ],
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [textColor, textColor])),
+        child: Text(
+          'กลับ',
+          style: TextStyle(
+            fontSize: 20,
+            color: Colors.white,
+            fontFamily: 'rsubold',
+          ),
+        ),
       ),
     );
   }
@@ -385,7 +383,7 @@ class _createlisthealthState extends State<createlisthealth> {
             gradient: LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
-                colors: [Color(0xff6E8786), Color(0xff6E8786)])),
+                colors: [textColor, textColor])),
         child: Text(
           'สร้างตารางรายวัน',
           style: TextStyle(
@@ -407,7 +405,7 @@ class _createlisthealthState extends State<createlisthealth> {
             fontFamily: 'rsubold',
             fontSize: 30,
             fontWeight: FontWeight.w700,
-            color: Color.fromARGB(255, 15, 136, 100)),
+            color: textColor),
       ),
     );
   }
@@ -433,9 +431,15 @@ class _createlisthealthState extends State<createlisthealth> {
     return Container(
       constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/3221598.jpg"),
-              fit: BoxFit.cover)),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color.fromARGB(255, 104, 150, 194),
+            Color.fromARGB(255, 221, 234, 240),
+          ],
+        ),
+      ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
@@ -447,10 +451,13 @@ class _createlisthealthState extends State<createlisthealth> {
               children: <Widget>[
                 SizedBox(height: height * .1),
                 _title(),
-                SizedBox(height: 20),
+                SizedBox(height: 10),
                 _DetailDiarydayWidget(),
                 SizedBox(height: 30),
                 _submitButton(),
+                SizedBox(height: 10),
+                _submitBack(),
+                SizedBox(height: 30),
               ],
             ),
           ),
