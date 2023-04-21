@@ -63,9 +63,85 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
                 title: Text(
                   '',
                   style: TextStyle(
-                      fontFamily: 'prompt', fontSize: 0, color: Colors.black),
+                      fontFamily: 'rsubold', fontSize: 0, color: Colors.black),
                 ),
                 tiles: <SettingsTile>[
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'ชื่อ',
+                      style: TextStyle(
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${widget.dataReq.firstname}",
+                      style: TextStyle(
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
+                          color: textColor),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'นามสกุล',
+                      style: TextStyle(
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${widget.dataReq.lastname}",
+                      style: TextStyle(
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
+                          color: textColor),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'เบอร์โทรศัพท์',
+                      style: TextStyle(
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${widget.dataReq.phonenumber}",
+                      style: TextStyle(
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
+                          color: textColor),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'เพศ',
+                      style: TextStyle(
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${widget.dataReq.gender}",
+                      style: TextStyle(
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
+                          color: textColor),
+                    ),
+                  ),
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
@@ -145,7 +221,7 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'ชื่อ',
+                      'สิ่งที่ต้้องการ',
                       style: TextStyle(
                         fontFamily: 'rsubold',
                         fontSize: 15,
@@ -153,13 +229,32 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
                       ),
                     ),
                     trailing: Text(
-                      "${widget.dataReq.firstname}",
+                      "${widget.dataReq.goaloption}",
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
                           color: textColor,
                           overflow: TextOverflow.fade),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'วิธีที่ต้องการ',
+                      style: TextStyle(
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${widget.dataReq.wayoption}",
+                      style: TextStyle(
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
+                          color: textColor),
                     ),
                   ),
                 ],

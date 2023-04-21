@@ -20,7 +20,7 @@ class _DetailDiaryState extends State<DetailDiary> {
   List<ConfirmModel> dataList = [];
   getData() async {
     final response =
-        await dio.get('${host}/get-daily-bydaily/${widget.dataReq.id}');
+        await dio.get('${host}/get-daily-bydailysss/${widget.dataReq.id}');
     if (response.statusCode == 200) {
       List<ConfirmModel> data = [];
       response.data.forEach((element) {
@@ -61,7 +61,7 @@ class _DetailDiaryState extends State<DetailDiary> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: GridView.count(
-              childAspectRatio: 1.5,
+              childAspectRatio: 1.3,
               crossAxisCount: 1,
               children: List.generate(dataList.length, (index) {
                 return Container(
@@ -106,6 +106,10 @@ class _DetailDiaryState extends State<DetailDiary> {
                         ),
                         Text(
                           'พักผ่อนต่อวัน(ชั่วโมง) :  ${dataList[index].sleep}',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        Text(
+                          'สถานะ :  ${dataList[index].status}',
                           style: TextStyle(fontSize: 17),
                         ),
                       ],
