@@ -61,7 +61,7 @@ class _DetailDiaryState extends State<DetailDiary> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: GridView.count(
-              childAspectRatio: 1.7,
+              childAspectRatio: 1.5,
               crossAxisCount: 1,
               children: List.generate(dataList.length, (index) {
                 return Container(
@@ -81,31 +81,31 @@ class _DetailDiaryState extends State<DetailDiary> {
                           style: TextStyle(fontSize: 17),
                         ),
                         Text(
-                          'มื้อเช้า :  ${dataList[index].day}',
+                          'มื้อเช้า :  ${dataList[index].food}',
                           style: TextStyle(fontSize: 17),
                         ),
                         Text(
-                          'มื้อเที่ยง :  ${dataList[index].day}',
+                          'มื้อเที่ยง :  ${dataList[index].lunch}',
                           style: TextStyle(fontSize: 17),
                         ),
                         Text(
-                          'มื้อเย็น :  ${dataList[index].day}',
+                          'มื้อเย็น :  ${dataList[index].dinner}',
                           style: TextStyle(fontSize: 17),
                         ),
                         Text(
-                          'รายการออกกำลังกาย :  ${dataList[index].day}',
+                          'รายการออกกำลังกาย :  ${dataList[index].exercise}',
                           style: TextStyle(fontSize: 17),
                         ),
                         Text(
-                          'รายละเอียดการออกกำลังกาย :  ${dataList[index].day}',
+                          'รายละเอียดการออกกำลังกาย :  ${dataList[index].descripex}',
                           style: TextStyle(fontSize: 17),
                         ),
                         Text(
-                          'พลังงานที่เผาผลาญกิโลแคลอรี่ต่อวัน(กิโลแคลอรี่) :  ${dataList[index].day}',
+                          'พลังงานที่เผาผลาญกิโลแคลอรี่ต่อวัน(กิโลแคลอรี่) :  ${dataList[index].calories}',
                           style: TextStyle(fontSize: 17),
                         ),
                         Text(
-                          'พักผ่อนต่อวัน(ชั่วโมง) :  ${dataList[index].day}',
+                          'พักผ่อนต่อวัน(ชั่วโมง) :  ${dataList[index].sleep}',
                           style: TextStyle(fontSize: 17),
                         ),
                       ],

@@ -6,7 +6,8 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../constants/constant.dart';
 import '../../widget/button_action.dart';
-import 'model/trainerdiary/createlisthealth.dart';
+
+import 'createlisthealth.dart';
 import 'model/usertrainer.dart';
 import 'noti_deatil.dart';
 

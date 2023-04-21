@@ -415,8 +415,8 @@ class _createlisthealthState extends State<createlisthealth> {
       children: <Widget>[
         _entryFieldDay("วัน"),
         _entryFieldFood("มื้อเช้า"),
-        _entryFieldlunch("รายการอาหาร"),
-        _entryFieldDinner("รายการอาหาร"),
+        _entryFieldlunch("มื้อเที่ยง"),
+        _entryFieldDinner("มื้อเย็น"),
         _entryFieldExercise("รายการออกกำลังกาย"),
         _entryFieldDescriptionEx("รายละเอียดการออกกำลังกาย"),
         _entryFieldCalories("พลังงานที่เผาผลาญกิโลแคลอรี่ต่อวัน(กิโลแคลอรี่)"),
