@@ -72,7 +72,7 @@ class _AreaListView2State extends State<AreaListView2>
       });
       PersistentNavBarNavigator.pushNewScreen(
         context,
-        screen: Deatil(dataReq: data[0]),
+        screen: Deatil(dataReq: data),
         withNavBar: false,
         pageTransitionAnimation: PageTransitionAnimation.cupertino,
       );

@@ -10,12 +10,12 @@ import '../models/confirm_model.dart';
 final dio = Dio();
 
 class Deatil extends StatelessWidget {
-  final ConfirmModel dataReq;
+  final List<ConfirmModel> dataReq;
   const Deatil({super.key, required this.dataReq});
 
   sendNoti(BuildContext context) async {
     final response = await dio.post('${host}/up-daily', data: {
-      "dailyNo": dataReq.dailyNo,
+      // "dailyNo": dataReq.dailyNo,
       "status": "success",
     });
     if (response.statusCode == 200) {
@@ -53,8 +53,8 @@ class Deatil extends StatelessWidget {
         ],
       ),
       body: Row(
-        children: [
-          SettingsList(
+        children: List.generate(dataReq.length, (index) {
+          return SettingsList(
             platform: DevicePlatform.iOS,
             sections: [
               SettingsSection(
@@ -76,7 +76,7 @@ class Deatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.day}",
+                      "${dataReq[index].day}",
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontSize: 12,
@@ -95,7 +95,7 @@ class Deatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.food}",
+                      "${dataReq[index].food}",
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontSize: 12,
@@ -114,7 +114,7 @@ class Deatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.lunch}",
+                      "${dataReq[index].lunch}",
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontSize: 12,
@@ -133,7 +133,7 @@ class Deatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.dinner}",
+                      "${dataReq[index].dinner}",
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontSize: 12,
@@ -152,7 +152,7 @@ class Deatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.exercise}",
+                      "${dataReq[index].exercise}",
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontSize: 12,
@@ -171,7 +171,7 @@ class Deatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.descripex}",
+                      "${dataReq[index].descripex}",
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontSize: 12,
@@ -190,7 +190,7 @@ class Deatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.calories}",
+                      "${dataReq[index].calories}",
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontSize: 12,
@@ -209,7 +209,7 @@ class Deatil extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      "${dataReq.sleep}",
+                      "${dataReq[index].sleep}",
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontSize: 12,
@@ -220,8 +220,8 @@ class Deatil extends StatelessWidget {
                 ],
               ),
             ],
-          )
-        ],
+          );
+        }),
       ),
     );
   }
