@@ -68,7 +68,26 @@ class Deatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'อาหาร',
+                      'วัน',
+                      style: TextStyle(
+                        fontFamily: 'prompt',
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${dataReq.day}",
+                      style: TextStyle(
+                          fontFamily: 'prompt',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w800,
+                          color: Color.fromARGB(255, 10, 158, 126)),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'มื้อเช้า',
                       style: TextStyle(
                         fontFamily: 'prompt',
                         fontSize: 12,
@@ -77,6 +96,44 @@ class Deatil extends StatelessWidget {
                     ),
                     trailing: Text(
                       "${dataReq.food}",
+                      style: TextStyle(
+                          fontFamily: 'prompt',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w800,
+                          color: Color.fromARGB(255, 10, 158, 126)),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'มื้อเที่ยง',
+                      style: TextStyle(
+                        fontFamily: 'prompt',
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${dataReq.lunch}",
+                      style: TextStyle(
+                          fontFamily: 'prompt',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w800,
+                          color: Color.fromARGB(255, 10, 158, 126)),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'มื้อเย็น',
+                      style: TextStyle(
+                        fontFamily: 'prompt',
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${dataReq.dinner}",
                       style: TextStyle(
                           fontFamily: 'prompt',
                           fontSize: 12,
@@ -106,7 +163,26 @@ class Deatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'แคลอรี่ที่เผาผลาญ',
+                      'รายละเอียดการออกกำลังกาย',
+                      style: TextStyle(
+                        fontFamily: 'prompt',
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${dataReq.descripex}",
+                      style: TextStyle(
+                          fontFamily: 'prompt',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w800,
+                          color: Color.fromARGB(255, 10, 158, 126)),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'แคลอรี่ที่เผาผลาญ(กิโลแคลอรี่)',
                       style: TextStyle(
                         fontFamily: 'prompt',
                         fontSize: 12,
@@ -125,7 +201,7 @@ class Deatil extends StatelessWidget {
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'การพักผ่อน',
+                      'การพักผ่อน(ชั่วโมง)',
                       style: TextStyle(
                         fontFamily: 'prompt',
                         fontSize: 12,

@@ -19,8 +19,12 @@ class createlisthealth extends StatefulWidget {
 }
 
 class _createlisthealthState extends State<createlisthealth> {
+  TextEditingController day = new TextEditingController();
   TextEditingController food = new TextEditingController();
+  TextEditingController lunch = new TextEditingController();
+  TextEditingController dinner = new TextEditingController();
   TextEditingController exercise = new TextEditingController();
+  TextEditingController descripex = new TextEditingController();
   TextEditingController calories = new TextEditingController();
   TextEditingController sleep = new TextEditingController();
   static FlutterSecureStorage storageToken = new FlutterSecureStorage();
@@ -55,8 +59,12 @@ class _createlisthealthState extends State<createlisthealth> {
     print(calories.text);
     print(sleep.text);
     final response = await dio.post('${host}/createdaily', data: {
+      "day": day.text,
       "food": food.text,
+      "lunch": lunch.text,
+      "dinner": dinner.text,
       "exercise": exercise.text,
+      "descripex": descripex.text,
       "calories": calories.text,
       "sleep": sleep.text,
       "Idtrainer": widget.dataReq.id,
@@ -66,6 +74,42 @@ class _createlisthealthState extends State<createlisthealth> {
     if (response.statusCode == 200) {
       Navigator.of(context).pop();
     }
+  }
+
+  Widget _entryFieldDay(String title) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            title,
+            style: TextStyle(
+                fontFamily: 'rsubold',
+                fontSize: 15,
+                color: Color.fromARGB(255, 22, 155, 111)),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          TextField(
+              controller: day,
+              decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(left: 10),
+                  border: InputBorder.none,
+                  fillColor: Colors.white,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderRadius: BorderRadius.all(Radius.circular(6)),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xffE2E8F0)),
+                    borderRadius: BorderRadius.all(Radius.circular(6)),
+                  ),
+                  filled: true))
+        ],
+      ),
+    );
   }
 
   Widget _entryFieldFood(String title) {
@@ -104,6 +148,78 @@ class _createlisthealthState extends State<createlisthealth> {
     );
   }
 
+  Widget _entryFieldlunch(String title) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            title,
+            style: TextStyle(
+                fontFamily: 'rsubold',
+                fontSize: 15,
+                color: Color.fromARGB(255, 22, 155, 111)),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          TextField(
+              controller: lunch,
+              decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(left: 10),
+                  border: InputBorder.none,
+                  fillColor: Colors.white,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderRadius: BorderRadius.all(Radius.circular(6)),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xffE2E8F0)),
+                    borderRadius: BorderRadius.all(Radius.circular(6)),
+                  ),
+                  filled: true))
+        ],
+      ),
+    );
+  }
+
+  Widget _entryFieldDinner(String title) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            title,
+            style: TextStyle(
+                fontFamily: 'rsubold',
+                fontSize: 15,
+                color: Color.fromARGB(255, 22, 155, 111)),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          TextField(
+              controller: dinner,
+              decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(left: 10),
+                  border: InputBorder.none,
+                  fillColor: Colors.white,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderRadius: BorderRadius.all(Radius.circular(6)),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xffE2E8F0)),
+                    borderRadius: BorderRadius.all(Radius.circular(6)),
+                  ),
+                  filled: true))
+        ],
+      ),
+    );
+  }
+
   Widget _entryFieldExercise(String title) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
@@ -122,6 +238,42 @@ class _createlisthealthState extends State<createlisthealth> {
           ),
           TextField(
               controller: exercise,
+              decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(left: 10),
+                  border: InputBorder.none,
+                  fillColor: Colors.white,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Color(0xff6E8786)),
+                    borderRadius: BorderRadius.all(Radius.circular(6)),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xffE2E8F0)),
+                    borderRadius: BorderRadius.all(Radius.circular(6)),
+                  ),
+                  filled: true))
+        ],
+      ),
+    );
+  }
+
+  Widget _entryFieldDescriptionEx(String title) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            title,
+            style: TextStyle(
+                fontFamily: 'rsubold',
+                fontSize: 15,
+                color: Color.fromARGB(255, 22, 155, 111)),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          TextField(
+              controller: descripex,
               decoration: InputDecoration(
                   contentPadding: EdgeInsets.only(left: 10),
                   border: InputBorder.none,
@@ -263,10 +415,14 @@ class _createlisthealthState extends State<createlisthealth> {
   Widget _DetailDiarydayWidget() {
     return Column(
       children: <Widget>[
-        _entryFieldFood("รายการอาหาร"),
+        _entryFieldDay("วัน"),
+        _entryFieldFood("มื้อเช้า"),
+        _entryFieldlunch("รายการอาหาร"),
+        _entryFieldDinner("รายการอาหาร"),
         _entryFieldExercise("รายการออกกำลังกาย"),
-        _entryFieldCalories("แคลอรี่ต่อวัน"),
-        _entryFieldSleep("พักผ่อนต่อวัน"),
+        _entryFieldDescriptionEx("รายละเอียดการออกกำลังกาย"),
+        _entryFieldCalories("พลังงานที่เผาผลาญกิโลแคลอรี่ต่อวัน(กิโลแคลอรี่)"),
+        _entryFieldSleep("พักผ่อนต่อวัน(ชั่วโมง)"),
       ],
     );
   }
