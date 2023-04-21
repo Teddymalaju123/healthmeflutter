@@ -61,7 +61,7 @@ class _TrainingScreen2State extends State<TrainingScreen2>
 
     listViews.add(
       TitleView(
-        titleTxt: 'รายชื่อเทนเนอร์',
+        titleTxt: 'เทรนเนอร์ที่ให้คำปรึกษา',
         subTxt: 'more',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
@@ -177,7 +177,7 @@ class _TrainingScreen2State extends State<TrainingScreen2>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'เทนเนอร์',
+                                  'เทรนเนอร์',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,

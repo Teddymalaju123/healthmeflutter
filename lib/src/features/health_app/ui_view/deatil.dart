@@ -62,7 +62,7 @@ class Deatil extends StatelessWidget {
                 title: Text(
                   '',
                   style: TextStyle(
-                      fontFamily: 'prompt', fontSize: 0, color: Colors.black),
+                      fontFamily: 'rsubold', fontSize: 0, color: Colors.black),
                 ),
                 tiles: <SettingsTile>[
                   SettingsTile.navigation(
@@ -70,7 +70,7 @@ class Deatil extends StatelessWidget {
                     title: Text(
                       'วัน',
                       style: TextStyle(
-                        fontFamily: 'prompt',
+                        fontFamily: 'rsubold',
                         fontSize: 12,
                         fontWeight: FontWeight.w800,
                       ),
@@ -78,7 +78,7 @@ class Deatil extends StatelessWidget {
                     trailing: Text(
                       "${dataReq.day}",
                       style: TextStyle(
-                          fontFamily: 'prompt',
+                          fontFamily: 'rsubold',
                           fontSize: 12,
                           fontWeight: FontWeight.w800,
                           color: Color.fromARGB(255, 10, 158, 126)),
@@ -89,7 +89,7 @@ class Deatil extends StatelessWidget {
                     title: Text(
                       'มื้อเช้า',
                       style: TextStyle(
-                        fontFamily: 'prompt',
+                        fontFamily: 'rsubold',
                         fontSize: 12,
                         fontWeight: FontWeight.w800,
                       ),
@@ -97,7 +97,7 @@ class Deatil extends StatelessWidget {
                     trailing: Text(
                       "${dataReq.food}",
                       style: TextStyle(
-                          fontFamily: 'prompt',
+                          fontFamily: 'rsubold',
                           fontSize: 12,
                           fontWeight: FontWeight.w800,
                           color: Color.fromARGB(255, 10, 158, 126)),
@@ -108,7 +108,7 @@ class Deatil extends StatelessWidget {
                     title: Text(
                       'มื้อเที่ยง',
                       style: TextStyle(
-                        fontFamily: 'prompt',
+                        fontFamily: 'rsubold',
                         fontSize: 12,
                         fontWeight: FontWeight.w800,
                       ),
@@ -116,7 +116,7 @@ class Deatil extends StatelessWidget {
                     trailing: Text(
                       "${dataReq.lunch}",
                       style: TextStyle(
-                          fontFamily: 'prompt',
+                          fontFamily: 'rsubold',
                           fontSize: 12,
                           fontWeight: FontWeight.w800,
                           color: Color.fromARGB(255, 10, 158, 126)),
@@ -127,7 +127,7 @@ class Deatil extends StatelessWidget {
                     title: Text(
                       'มื้อเย็น',
                       style: TextStyle(
-                        fontFamily: 'prompt',
+                        fontFamily: 'rsubold',
                         fontSize: 12,
                         fontWeight: FontWeight.w800,
                       ),
@@ -135,7 +135,7 @@ class Deatil extends StatelessWidget {
                     trailing: Text(
                       "${dataReq.dinner}",
                       style: TextStyle(
-                          fontFamily: 'prompt',
+                          fontFamily: 'rsubold',
                           fontSize: 12,
                           fontWeight: FontWeight.w800,
                           color: Color.fromARGB(255, 10, 158, 126)),
@@ -146,7 +146,7 @@ class Deatil extends StatelessWidget {
                     title: Text(
                       'การออกกำลังกาย',
                       style: TextStyle(
-                        fontFamily: 'prompt',
+                        fontFamily: 'rsubold',
                         fontSize: 12,
                         fontWeight: FontWeight.w800,
                       ),
@@ -154,7 +154,7 @@ class Deatil extends StatelessWidget {
                     trailing: Text(
                       "${dataReq.exercise}",
                       style: TextStyle(
-                          fontFamily: 'prompt',
+                          fontFamily: 'rsubold',
                           fontSize: 12,
                           fontWeight: FontWeight.w800,
                           color: Color.fromARGB(255, 10, 158, 126)),
@@ -165,7 +165,7 @@ class Deatil extends StatelessWidget {
                     title: Text(
                       'รายละเอียดการออกกำลังกาย',
                       style: TextStyle(
-                        fontFamily: 'prompt',
+                        fontFamily: 'rsubold',
                         fontSize: 12,
                         fontWeight: FontWeight.w800,
                       ),
@@ -173,7 +173,7 @@ class Deatil extends StatelessWidget {
                     trailing: Text(
                       "${dataReq.descripex}",
                       style: TextStyle(
-                          fontFamily: 'prompt',
+                          fontFamily: 'rsubold',
                           fontSize: 12,
                           fontWeight: FontWeight.w800,
                           color: Color.fromARGB(255, 10, 158, 126)),
@@ -184,7 +184,7 @@ class Deatil extends StatelessWidget {
                     title: Text(
                       'แคลอรี่ที่เผาผลาญ(กิโลแคลอรี่)',
                       style: TextStyle(
-                        fontFamily: 'prompt',
+                        fontFamily: 'rsubold',
                         fontSize: 12,
                         fontWeight: FontWeight.w800,
                       ),
@@ -192,7 +192,7 @@ class Deatil extends StatelessWidget {
                     trailing: Text(
                       "${dataReq.calories}",
                       style: TextStyle(
-                          fontFamily: 'prompt',
+                          fontFamily: 'rsubold',
                           fontSize: 12,
                           fontWeight: FontWeight.w800,
                           color: Color.fromARGB(255, 10, 158, 126)),
@@ -203,7 +203,7 @@ class Deatil extends StatelessWidget {
                     title: Text(
                       'การพักผ่อน(ชั่วโมง)',
                       style: TextStyle(
-                        fontFamily: 'prompt',
+                        fontFamily: 'rsubold',
                         fontSize: 12,
                         fontWeight: FontWeight.w800,
                       ),
@@ -211,7 +211,7 @@ class Deatil extends StatelessWidget {
                     trailing: Text(
                       "${dataReq.sleep}",
                       style: TextStyle(
-                          fontFamily: 'prompt',
+                          fontFamily: 'rsubold',
                           fontSize: 12,
                           fontWeight: FontWeight.w800,
                           color: Color.fromARGB(255, 10, 158, 126)),
