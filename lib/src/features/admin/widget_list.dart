@@ -22,7 +22,7 @@ class _WidgetListState extends State<WidgetList> {
           return Padding(
               padding: EdgeInsets.only(top: 8, left: 9),
               child: Container(
-                height: 230,
+                height: 300,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
                   gradient: LinearGradient(
@@ -48,7 +48,14 @@ class _WidgetListState extends State<WidgetList> {
                       ),
                       Row(
                         children: [
-                          Text('อีเมล : ${widget.userData[index].email}',
+                          Text(
+                              'ชื่อผู้ใช้ : ${widget.userData[index].username}',
+                              style: TextStyle(fontSize: 13, color: textColor)),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text('รหัสผ่าน : ${widget.userData[index].password}',
                               style: TextStyle(fontSize: 13, color: textColor)),
                         ],
                       ),
@@ -60,43 +67,68 @@ class _WidgetListState extends State<WidgetList> {
                       ),
                       Row(
                         children: [
-                          Text('อีเมล : ${widget.userData[index].email}',
+                          Text(
+                              'เบอร์โทรศัพท์ : ${widget.userData[index].phonenumber}',
                               style: TextStyle(fontSize: 13, color: textColor)),
                         ],
                       ),
                       Row(
                         children: [
-                          Text('อีเมล : ${widget.userData[index].email}',
+                          Text('เพศ : ${widget.userData[index].gender}',
                               style: TextStyle(fontSize: 13, color: textColor)),
                         ],
                       ),
                       Row(
                         children: [
-                          Text('อีเมล : ${widget.userData[index].email}',
+                          Text(
+                              'เดือนเกิด : ${widget.userData[index].dateofbirth}',
                               style: TextStyle(fontSize: 13, color: textColor)),
                         ],
                       ),
                       Row(
                         children: [
-                          Text('อีเมล : ${widget.userData[index].email}',
+                          Text('น้ำหนัก : ${widget.userData[index].weight}',
                               style: TextStyle(fontSize: 13, color: textColor)),
                         ],
                       ),
                       Row(
                         children: [
-                          Text('อีเมล : ${widget.userData[index].email}',
+                          Text('ส่วนสูง : ${widget.userData[index].height}',
                               style: TextStyle(fontSize: 13, color: textColor)),
                         ],
                       ),
                       Row(
                         children: [
-                          Text('อีเมล : ${widget.userData[index].email}',
+                          Text(
+                              'เป้าหมายน้ำหนัก : ${widget.userData[index].targetweight}',
                               style: TextStyle(fontSize: 13, color: textColor)),
                         ],
                       ),
                       Row(
                         children: [
-                          Text('อีเมล : ${widget.userData[index].email}',
+                          Text(
+                              'วันที่กำหนด : ${widget.userData[index].dateoftarget}',
+                              style: TextStyle(fontSize: 13, color: textColor)),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                              'สิ่งที่ต้องการ : ${widget.userData[index].goaloption}',
+                              style: TextStyle(fontSize: 13, color: textColor)),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                              'วิธีที่ต้องการ : ${widget.userData[index].wayoption}',
+                              style: TextStyle(fontSize: 13, color: textColor)),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                              'ประเภทผู้ใช้งาน : ${widget.userData[index].usertype}',
                               style: TextStyle(fontSize: 13, color: textColor)),
                         ],
                       ),
