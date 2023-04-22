@@ -435,8 +435,8 @@ class _createlisthealthState extends State<createlisthealth> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Color.fromARGB(255, 104, 150, 194),
-            Color.fromARGB(255, 221, 234, 240),
+            Color.fromRGBO(70, 133, 136, 100),
+            Color.fromARGB(255, 255, 255, 255),
           ],
         ),
       ),
