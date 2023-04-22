@@ -80,11 +80,6 @@ class _AdminListState extends State<AdminList> {
                             children: [
                               Row(
                                 children: [
-                                  Icon(
-                                    CupertinoIcons.list_bullet,
-                                    color: textColor,
-                                    size: 30,
-                                  ),
                                   Text(
                                     ' ผู้ดูแลระบบ',
                                     style: TextStyle(
@@ -175,7 +170,10 @@ class _AdminListState extends State<AdminList> {
                       Expanded(
                         child: Padding(
                           padding: EdgeInsets.only(left: 10, right: 20),
-                          child: WidgetList(userData: userData),
+                          child: WidgetList(
+                            userData: userData,
+                            onSelect: () => {getData1()},
+                          ),
                         ),
                       ),
                     ],
