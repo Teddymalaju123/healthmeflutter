@@ -7,6 +7,7 @@ import 'package:flutterapphealthme/src/features/authentication/model/user_info.d
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../constants/constant.dart';
+import '../admin/admin_list.dart';
 import '../health_app/fitness_app_home_screen.dart';
 import '../routing/navigator.dart';
 
@@ -45,6 +46,8 @@ class _LoginState extends State<Login> {
         if (userData != null && userData.isNotEmpty) {
           if (userData[0].usertype == "USER") {
             goToMainUser();
+          } else if (userData[0].usertype == "ADMIN") {
+            goToAdmin();
           } else {
             goToMain();
           }
@@ -147,6 +150,18 @@ class _LoginState extends State<Login> {
         settings: RouteSettings(name: "/MenuBar2"),
         builder: (BuildContext context) {
           return FitnessAppHomeScreen();
+        },
+      ),
+      (_) => false,
+    );
+  }
+
+  goToAdmin() {
+    Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
+      MaterialPageRoute(
+        settings: RouteSettings(name: "/admin"),
+        builder: (BuildContext context) {
+          return AdminList();
         },
       ),
       (_) => false,
