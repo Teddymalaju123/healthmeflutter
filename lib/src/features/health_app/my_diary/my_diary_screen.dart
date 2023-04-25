@@ -123,7 +123,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.screendiary,
+      color: Color.fromARGB(122, 143, 184, 146),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(

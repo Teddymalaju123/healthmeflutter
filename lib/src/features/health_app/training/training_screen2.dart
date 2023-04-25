@@ -61,7 +61,7 @@ class _TrainingScreen2State extends State<TrainingScreen2>
 
     listViews.add(
       TitleView(
-        titleTxt: 'เทรนเนอร์ที่ให้คำปรึกษา',
+        titleTxt: 'เทรนเนอร์ที่ให้คำปรึกษาของฉัน',
         subTxt: 'more',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
@@ -91,7 +91,7 @@ class _TrainingScreen2State extends State<TrainingScreen2>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.screendiary,
+      color: Color.fromARGB(122, 143, 184, 146),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(

@@ -255,24 +255,25 @@ class _LoginState extends State<Login> {
         login();
       },
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: 250,
         padding: EdgeInsets.symmetric(vertical: 6),
         alignment: Alignment.center,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(5)),
             boxShadow: <BoxShadow>[
               BoxShadow(
-                  color: Colors.grey.shade200,
+                  color: Color.fromARGB(255, 129, 129, 129),
                   offset: Offset(2, 4),
-                  blurRadius: 5,
-                  spreadRadius: 2)
+                  blurRadius: 2,
+                  spreadRadius: 0.5)
             ],
             gradient: LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
-                colors: [textColor, textColor])),
+                colors: [Color.fromARGB(255, 0, 92, 8), Color.fromRGBO(38, 151, 3, 1)])),
+  
         child: Text(
-          'ลงชื่อเข้าใช้งานระบบ',
+          'ลงชื่อเข้าใช้งาน',
           style: TextStyle(
             fontSize: 20,
             color: Colors.white,
@@ -298,27 +299,27 @@ class _LoginState extends State<Login> {
         gotoregister();
       },
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: 250,
         padding: EdgeInsets.symmetric(vertical: 6),
         alignment: Alignment.center,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(5)),
             boxShadow: <BoxShadow>[
               BoxShadow(
-                  color: Colors.grey.shade200,
+                  color: Color.fromARGB(255, 129, 129, 129),
                   offset: Offset(2, 4),
-                  blurRadius: 5,
-                  spreadRadius: 2)
+                  blurRadius: 2,
+                  spreadRadius: 0.5)
             ],
             gradient: LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
-                colors: [textColor, textColor])),
+                colors: [Color.fromARGB(255, 223, 223, 223), Color.fromRGBO(206, 206, 205, 1)])),
         child: Text(
           'สมัครสมาชิก',
           style: TextStyle(
             fontSize: 20,
-            color: Colors.white,
+            color: Color.fromARGB(255, 7, 73, 13),
             fontFamily: 'rsubold',
           ),
         ),
@@ -359,8 +360,8 @@ class _LoginState extends State<Login> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Color.fromRGBO(70, 133, 136, 100),
-            Color.fromARGB(255, 255, 255, 255),
+            Color.fromRGBO(255, 255, 255, 1),
+            Color.fromARGB(255, 131, 156, 134),
           ],
         ),
       ),
@@ -373,13 +374,23 @@ class _LoginState extends State<Login> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(height: height * .3),
+                Container(
+                    height: 300,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/logo.png'),
+                        fit: BoxFit.contain,
+                        alignment: Alignment.center,
+                      ),
+                    )),
+                SizedBox(height: 0),
                 _title(),
                 SizedBox(height: 30),
                 _emailPasswordWidget(),
                 SizedBox(height: 30),
                 _submitButton(),
-                SizedBox(height: 30),
+                SizedBox(height: 20),
                 _RegisterButton(),
               ],
             ),
@@ -389,3 +400,5 @@ class _LoginState extends State<Login> {
     );
   }
 }
+
+

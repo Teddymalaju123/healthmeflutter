@@ -341,15 +341,15 @@ class _createlisthealthState extends State<createlisthealth> {
             borderRadius: BorderRadius.all(Radius.circular(5)),
             boxShadow: <BoxShadow>[
               BoxShadow(
-                  color: Colors.grey.shade200,
+                  color: Color.fromARGB(255, 139, 139, 139),
                   offset: Offset(2, 4),
-                  blurRadius: 5,
-                  spreadRadius: 2)
+                  blurRadius: 3,
+                  spreadRadius: 1)
             ],
             gradient: LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
-                colors: [textColor, textColor])),
+                colors: [Color.fromARGB(255, 49, 73, 56), Color.fromRGBO(179, 179, 179, 1)])),
         child: Text(
           'กลับ',
           style: TextStyle(
@@ -375,15 +375,15 @@ class _createlisthealthState extends State<createlisthealth> {
             borderRadius: BorderRadius.all(Radius.circular(5)),
             boxShadow: <BoxShadow>[
               BoxShadow(
-                  color: Colors.grey.shade200,
+                  color: Color.fromARGB(255, 139, 139, 139),
                   offset: Offset(2, 4),
-                  blurRadius: 5,
-                  spreadRadius: 2)
+                  blurRadius: 3,
+                  spreadRadius: 1)
             ],
             gradient: LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
-                colors: [textColor, textColor])),
+                colors: [Color.fromARGB(255, 0, 92, 8), Color.fromRGBO(38, 151, 3, 1)])),
         child: Text(
           'สร้างตารางรายวัน',
           style: TextStyle(
@@ -413,14 +413,14 @@ class _createlisthealthState extends State<createlisthealth> {
   Widget _DetailDiarydayWidget() {
     return Column(
       children: <Widget>[
-        _entryFieldDay("วัน"),
-        _entryFieldFood("มื้อเช้า"),
-        _entryFieldlunch("มื้อเที่ยง"),
-        _entryFieldDinner("มื้อเย็น"),
-        _entryFieldExercise("รายการออกกำลังกาย"),
+        _entryFieldDay("ไดอารี่ของวันนี้ (วันที่/เดือน/ปี)"),
+        _entryFieldFood("มื้อเช้า (เมนูที่แนะนำให้รับประทาน)"),
+        _entryFieldlunch("มื้อเที่ยง (เมนูที่แนะนำให้รับประทาน)"),
+        _entryFieldDinner("มื้อเย็น (เมนูที่แนะนำให้รับประทาน)"),
+        _entryFieldExercise("รายการการออกกำลังกาย"),
         _entryFieldDescriptionEx("รายละเอียดการออกกำลังกาย"),
-        _entryFieldCalories("พลังงานที่เผาผลาญกิโลแคลอรี่ต่อวัน(กิโลแคลอรี่)"),
-        _entryFieldSleep("พักผ่อนต่อวัน(ชั่วโมง)"),
+        _entryFieldCalories("พลังงานที่ควรได้รับ (กิโลแคลอรี่)"),
+        _entryFieldSleep("การพักผ่อนที่เหมาะสมต่อวัน (ชั่วโมง)"),
       ],
     );
   }
@@ -435,8 +435,8 @@ class _createlisthealthState extends State<createlisthealth> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Color.fromRGBO(70, 133, 136, 100),
-            Color.fromARGB(255, 255, 255, 255),
+            Color.fromRGBO(255, 255, 255, 1),
+            Color.fromARGB(255, 126, 153, 138),
           ],
         ),
       ),

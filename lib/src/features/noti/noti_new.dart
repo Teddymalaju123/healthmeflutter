@@ -105,7 +105,7 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: textColor,
+            backgroundColor: Color.fromARGB(255, 0, 92, 8),
             bottom: TabBar(
               onTap: (value) => {
                 if (value == 0)
@@ -125,7 +125,7 @@ class _NotiNewState extends State<NotiNew> with SingleTickerProviderStateMixin {
                 Tab(icon: Text("ปฎิเสธ", style: TextStyle(fontSize: 17))),
               ],
             ),
-            title: Text('รายการ', style: TextStyle(fontSize: 23)),
+            title: Text('รายการของฉัน', style: TextStyle(fontSize: 23)),
           ),
           body: TabBarView(
             children: [

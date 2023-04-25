@@ -43,7 +43,7 @@ class _DetailDiaryState extends State<DetailDiary> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: textColor,
+        backgroundColor: Color.fromARGB(255, 0, 92, 8),
         title: const Text('รายละเอียดไดอารี'),
         centerTitle: true,
         leading: IconButton(

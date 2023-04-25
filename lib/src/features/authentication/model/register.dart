@@ -560,7 +560,7 @@ class _registerState extends State<register> {
             gradient: LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
-                colors: [textColor, textColor])),
+                colors: [Color.fromARGB(255, 0, 92, 8), Color.fromRGBO(38, 151, 3, 1)])),
         child: Text(
           'สมัครสมาชิก',
           style: TextStyle(
@@ -755,7 +755,7 @@ class _registerState extends State<register> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Color.fromRGBO(70, 133, 136, 100),
+            Color.fromRGBO(201, 255, 214, 0.475),
             Color.fromARGB(255, 255, 255, 255),
           ],
         ),

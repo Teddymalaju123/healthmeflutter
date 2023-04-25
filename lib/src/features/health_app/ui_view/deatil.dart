@@ -89,7 +89,7 @@ class Deatil extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: textColor,
+        backgroundColor: Color.fromARGB(255, 0, 92, 8),
         title: const Text('รายละเอียด'),
         centerTitle: true,
         leading: IconButton(

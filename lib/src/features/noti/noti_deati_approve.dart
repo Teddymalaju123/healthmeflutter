@@ -40,7 +40,7 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: textColor,
+        backgroundColor: Color.fromARGB(255, 0, 92, 8),
         title: Text('รายละเอียด'),
         centerTitle: true,
         leading: IconButton(
@@ -279,14 +279,14 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
                             PageTransitionAnimation.cupertino,
                       ).then((value) => {})
                     },
-                    leading: Icon(Icons.add, color: textColor),
+                    leading: Icon(Icons.add, color: Colors.red),
                     title: Text(
                       'สร้างไดอารี',
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontWeight: FontWeight.w900,
                           fontSize: 16,
-                          color: textColor),
+                          color: Colors.red),
                     ),
                     trailing: Text(
                       '',
@@ -303,14 +303,14 @@ class _NotiDeatilApproveState extends State<NotiDeatilApprove>
                             PageTransitionAnimation.cupertino,
                       ).then((value) => {})
                     },
-                    leading: Icon(Icons.info_outline, color: textColor),
+                    leading: Icon(Icons.info_outline, color: Color.fromARGB(255, 78, 78, 78)),
                     title: Text(
                       'รายละเอียดไดอารี',
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontWeight: FontWeight.w900,
                           fontSize: 16,
-                          color: textColor),
+                          color: Color.fromARGB(255, 78, 78, 78)),
                     ),
                     trailing: Text(
                       '',
