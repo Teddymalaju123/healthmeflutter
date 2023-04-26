@@ -22,50 +22,6 @@ class _NotiState extends State<Noti> {
   static FlutterSecureStorage storageToken = new FlutterSecureStorage();
   final dio = Dio();
   List<UserTrainer> userData = [];
-  // List<UserTrainer> userData = [
-  //   UserTrainer(
-  //       id: 3,
-  //       user: "testnew123",
-  //       status: "waiting",
-  //       usertrainer: "trainertest2",
-  //       username: "testnew123",
-  //       password: "test123",
-  //       email: "testnew@new.com",
-  //       firstname: "jiramate",
-  //       lastname: "saratnong",
-  //       phonenumber: "0937830426",
-  //       gender: "ชาย",
-  //       dateofbirth: "11/02/2545",
-  //       weight: "68",
-  //       height: "175",
-  //       goaloption: "Build muscle",
-  //       targetweight: "60",
-  //       dateoftarget: "11/09/2565",
-  //       wayoption: "IF",
-  //       typeuser: "1",
-  //       usertype: "USER"),
-  //   UserTrainer(
-  //       id: 4,
-  //       user: "testnew123",
-  //       status: "waiting",
-  //       usertrainer: "trainertest2",
-  //       username: "testnew123",
-  //       password: "test123",
-  //       email: "testnew@new.com",
-  //       firstname: "jiramate",
-  //       lastname: "saratnong",
-  //       phonenumber: "0937830426",
-  //       gender: "ชาย",
-  //       dateofbirth: "11/02/2545",
-  //       weight: "68",
-  //       height: "175",
-  //       goaloption: "Build muscle",
-  //       targetweight: "60",
-  //       dateoftarget: "11/09/2565",
-  //       wayoption: "IF",
-  //       typeuser: "1",
-  //       usertype: "USER")
-  // ];
   getData() async {
     userData.clear();
     final username = await storageToken.read(key: 'username');
@@ -83,11 +39,7 @@ class _NotiState extends State<Noti> {
     }
   }
 
-//   {
-//     "user" : "testnew123",
-//     "status" : "approve",
-//     "usertrainer" : "trainertest2"
-// }
+
 
   action(String status, UserTrainer data) async {
     final username = await storageToken.read(key: 'username');

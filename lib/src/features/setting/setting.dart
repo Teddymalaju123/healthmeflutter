@@ -33,46 +33,6 @@ class _SettingState extends State<Setting> {
         child: ListView(
           children: [
             SettingsGroup(
-              items: [
-                SettingsItem(
-                  onTap: () {},
-                  icons: CupertinoIcons.pencil_outline,
-                  iconStyle: IconStyle(),
-                  title: 'Appearance',
-                  subtitle: "Make Ziar'App yours",
-                ),
-                SettingsItem(
-                  onTap: () {},
-                  icons: Icons.dark_mode_rounded,
-                  iconStyle: IconStyle(
-                    iconsColor: Colors.white,
-                    withBackground: true,
-                    backgroundColor: Colors.red,
-                  ),
-                  title: 'Dark mode',
-                  subtitle: "Automatic",
-                  trailing: Switch.adaptive(
-                    value: false,
-                    onChanged: (value) {},
-                  ),
-                ),
-              ],
-            ),
-            SettingsGroup(
-              items: [
-                SettingsItem(
-                  onTap: () {},
-                  icons: Icons.info_rounded,
-                  iconStyle: IconStyle(
-                    backgroundColor: Colors.purple,
-                  ),
-                  title: 'About',
-                  subtitle: "Learn more about Ziar'App",
-                ),
-              ],
-            ),
-            // You can add a settings title
-            SettingsGroup(
               settingsGroupTitle: "Account",
               items: [
                 SettingsItem(

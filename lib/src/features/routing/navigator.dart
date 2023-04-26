@@ -29,8 +29,8 @@ class _NavigationMenuBarState extends State<NavigationMenuBar> {
     return [
       PersistentBottomNavBarItem(
         // contentPadding: 0.0,
-        icon: Container(child: Icon(CupertinoIcons.bell, size: 23)),
-        title: "แจ้งเตือน",
+        icon: Container(child: Icon(CupertinoIcons.home, size: 23)),
+        title: "หน้าหลัก",
         activeColorPrimary: textColor,
         inactiveColorPrimary: Color.fromARGB(255, 106, 109, 108),
       ),

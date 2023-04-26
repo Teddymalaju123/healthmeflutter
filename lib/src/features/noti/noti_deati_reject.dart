@@ -66,6 +66,82 @@ class _NotiDeatilRejectState extends State<NotiDeatilReject>
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
+                      'ชื่อ',
+                      style: TextStyle(
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${widget.dataReq.firstname}",
+                      style: TextStyle(
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
+                          color: textColor),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'นามสกุล',
+                      style: TextStyle(
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${widget.dataReq.lastname}",
+                      style: TextStyle(
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
+                          color: textColor),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'เบอร์โทรศัพท์',
+                      style: TextStyle(
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${widget.dataReq.phonenumber}",
+                      style: TextStyle(
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
+                          color: textColor),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'เพศ',
+                      style: TextStyle(
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${widget.dataReq.gender}",
+                      style: TextStyle(
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
+                          color: textColor),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
                       'น้ำหนัก',
                       style: TextStyle(
                         fontFamily: 'rsubold',
@@ -79,7 +155,8 @@ class _NotiDeatilRejectState extends State<NotiDeatilReject>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
+                          color: textColor,
+                          overflow: TextOverflow.fade),
                     ),
                   ),
                   SettingsTile.navigation(
@@ -98,7 +175,7 @@ class _NotiDeatilRejectState extends State<NotiDeatilReject>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
+                          color: textColor),
                     ),
                   ),
                   SettingsTile.navigation(
@@ -117,7 +194,7 @@ class _NotiDeatilRejectState extends State<NotiDeatilReject>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
+                          color: textColor),
                     ),
                   ),
                   SettingsTile.navigation(
@@ -136,13 +213,13 @@ class _NotiDeatilRejectState extends State<NotiDeatilReject>
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126)),
+                          color: textColor),
                     ),
                   ),
                   SettingsTile.navigation(
                     leading: null,
                     title: Text(
-                      'ชื่อ',
+                      'สิ่งที่ต้องการ',
                       style: TextStyle(
                         fontFamily: 'rsubold',
                         fontSize: 15,
@@ -150,13 +227,31 @@ class _NotiDeatilRejectState extends State<NotiDeatilReject>
                       ),
                     ),
                     trailing: Text(
-                      "${widget.dataReq.firstname}",
+                      "${widget.dataReq.goaloption}",
                       style: TextStyle(
                           fontFamily: 'rsubold',
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromARGB(255, 10, 158, 126),
-                          overflow: TextOverflow.fade),
+                          color: textColor),
+                    ),
+                  ),
+                  SettingsTile.navigation(
+                    leading: null,
+                    title: Text(
+                      'วิธีที่ต้องการ',
+                      style: TextStyle(
+                        fontFamily: 'rsubold',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    trailing: Text(
+                      "${widget.dataReq.wayoption}",
+                      style: TextStyle(
+                          fontFamily: 'rsubold',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
+                          color: textColor),
                     ),
                   ),
                 ],
